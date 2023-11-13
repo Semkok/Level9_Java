@@ -2,10 +2,8 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 import java.awt.Graphics2D;
@@ -15,29 +13,26 @@ import java.util.List;
 import java.io.File;
 import java.io.IOException;
 
+/*
+ * JPANEL FOR THE APPLICATION WINDOW USED AS A DRAWING SPACE FOR THE USER
+ * */
+
 public class DrawPanel extends JPanel {
+	
+	// ArrayList for keeping track of where is drawn on the DrawPanel
     private List<Point> clickedPoints = new ArrayList<>();
+    
+    // Point object for keeping track of the current point 
     private Point currentPoint;
 
     DrawPanel() {
         setBounds(0, 120, 1280, 600);
-
+        
         // Add a mouse listener for drawing when the mouse is pressed
         addMouseListener(new PaintMouseListener());
 
         // Add a mouse motion listener for tracking mouse movement
         addMouseMotionListener(new PaintMouseMotionListener());
-        
-        while(true) {
-			long currentTimeMillis = System.currentTimeMillis() / 1000;
-			long currentTimeSeconds = currentTimeMillis % 10;
-			System.out.println(currentTimeSeconds);
-			if(currentTimeSeconds == 6) {
-				this.saveImageToFile("image.png");
-				break;
-			}
-			
-		}
     }
 
     protected void paintComponent(Graphics g) {
@@ -67,6 +62,8 @@ public class DrawPanel extends JPanel {
             repaint();
         }
 
+        // Unneeded but needs to be implemented by MouseListener
+        
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			// TODO Auto-generated method stub
@@ -98,7 +95,7 @@ public class DrawPanel extends JPanel {
             // Update the current point during mouse dragging
             currentPoint = new Point(e.getX(), e.getY());
 
-            // Add the current point to the list (optional)
+            
             clickedPoints.add(currentPoint);
 
             // Repaint to update the drawing
