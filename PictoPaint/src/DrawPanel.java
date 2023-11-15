@@ -1,4 +1,3 @@
-import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.JColorChooser;
 import java.awt.Color;
@@ -6,13 +5,14 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.awt.image.BufferedImage;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+/*
+ * DRAWINGBOARD FOR THE PICOPAINT APPLICATION
+ * */
 
 public class DrawPanel extends JPanel {
 
@@ -41,13 +41,14 @@ public class DrawPanel extends JPanel {
     }
 
     protected void paintComponent(Graphics g) {
+    	
         super.paintComponent(g);
 
-        // Draw all the colored points
+        // convert Graphics object to Graphics2D object
         Graphics2D g2d = (Graphics2D) g;
         
         
-
+        
         for (ColoredPoint coloredPoint : coloredPoints) {
             g2d.setColor(coloredPoint.getColor());
             Point point = coloredPoint.getPoint();
@@ -66,11 +67,13 @@ public class DrawPanel extends JPanel {
         public void mousePressed(MouseEvent e) {
             // Check if the right mouse button is pressed
             if (e.getButton() == MouseEvent.BUTTON3) {
-                // Change the brush color when right mouse button is pressed
+                // shows a pop-up of a java color menu for the user to pick a color
                 brushColor = JColorChooser.showDialog(DrawPanel.this, "Choose Brush Color", brushColor);
             } else {
                 // Add the clicked point to the list with the current brush color
                 ColoredPoint coloredPoint = new ColoredPoint(new Point(e.getX(), e.getY()), brushColor);
+                
+                // if the left mouse button is pressed it will add the drawn coloredPoint to the colordPointsArraylist
                 coloredPoints.add(coloredPoint);
             }
 
@@ -116,19 +119,8 @@ public class DrawPanel extends JPanel {
         }
     }
 
-    public void saveImageToFile(String filePath) {
-        BufferedImage image = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2d = image.createGraphics();
-        paint(g2d);
-        g2d.dispose();
-
-        try {
-            ImageIO.write(image, "png", new File(filePath));
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-
+    
+    // ColordPoint class for retrieving the specific color and point of an drawn object where its drawn on this JPanel
     private class ColoredPoint {
         private Point point;
         private Color color;

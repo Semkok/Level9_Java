@@ -1,20 +1,23 @@
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.swing.JLabel;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /*
  * TOOLBAR JPANEL USED FOR OPTION MENU FOR THE APPLICATIONWINDOW
  *  */
-
-
-
 public class ToolBar extends JPanel implements ActionListener{
 	
 	JButton exportDrawing;
-	JButton exportDrawing1;
+	JButton changeBackgroundButton;
 	
 	JPanel mainPanel;
 	
@@ -23,35 +26,41 @@ public class ToolBar extends JPanel implements ActionListener{
 	private int currentBackground = 0;
 	
 	final int toolBarWidth = ApplicationWindow.WIDTH;
-	final int toolBarHeight = ApplicationWindow.HEIGHT/ 6;
+	final int toolBarHeight = ApplicationWindow.HEIGHT / 15;
 	
 	ToolBar(JPanel drawPanel){
 		this.mainPanel = drawPanel;
 		
 		setBounds(0,0,toolBarWidth,toolBarHeight);
-		setBackground(Color.GRAY);
+		setBackground(new Color(0,6,47));
+		
+		JLabel title = new JLabel("PictoPaint!");
+		title.setFont(new Font("Serif", Font.PLAIN, 40));
+		title.setForeground(new Color(255,255,255));
+		title.setBounds(-10,0,50,10);
+		add(title);
 		
 		exportDrawing = new JButton();
 		exportDrawing.setText("Export Drawing to PNG");
-		exportDrawing.setBounds(0, 0, 80, 50);
+		exportDrawing.setBounds(0, 0, 50, 10);
 		add(exportDrawing);
 		
-		exportDrawing1 = new JButton();
-		exportDrawing1.setText("2");
-		exportDrawing1.setBounds(10, 0, 80, 50);
-		add(exportDrawing1);
+		changeBackgroundButton = new JButton();
+		changeBackgroundButton.setText("Change background");
+		changeBackgroundButton.setBounds(ApplicationWindow.WIDTH / 2, 0, 50, 10);
+		add(changeBackgroundButton);
 		
 		exportDrawing.addActionListener(this);
-		exportDrawing1.addActionListener(this);
+		changeBackgroundButton.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==exportDrawing) {
-			
+			saveImageToFile("image.png");
 		}
 		
-		if(e.getSource()==exportDrawing1) {
+		if(e.getSource()==changeBackgroundButton) {
 			
 			mainPanel.setBackground(useableColors[currentBackground]);
 			currentBackground++;
@@ -61,6 +70,24 @@ public class ToolBar extends JPanel implements ActionListener{
 			
 		}
 		
+	}
+	
+	// function for saving the DrawPanel its contents
+	public void saveImageToFile(String filePath) {
+		
+	    BufferedImage image = new BufferedImage(mainPanel.getWidth(), mainPanel.getHeight(), BufferedImage.TYPE_INT_ARGB);
+	    Graphics2D g2d = image.createGraphics();
+	    
+	    // Draw the content of mainPanel onto the BufferedImage
+	    mainPanel.paint(g2d);
+	    
+	    g2d.dispose();
+
+	    try {
+	        ImageIO.write(image, "png", new File(filePath));
+	    } catch (IOException ex) {
+	        ex.printStackTrace();
+	    }
 	}
 
 }

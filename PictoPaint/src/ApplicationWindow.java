@@ -10,12 +10,12 @@ import javax.swing.JFrame;
 
 public class ApplicationWindow extends JFrame {
 	
-	static // object for getting the user its screen size
-	final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	static final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); // object for getting the user its screen size
 	
 	public final static int WIDTH = (int)screenSize.getWidth() ,HEIGHT = (int)screenSize.getHeight();
 	
 	ApplicationWindow(){
+		System.out.println(HEIGHT);
 		setTitle("PictoPaint");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
