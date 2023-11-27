@@ -18,7 +18,6 @@ public class ToolBar extends JPanel implements ActionListener{
 	
 	JButton exportDrawing;
 	JButton changeBackgroundButton;
-	
 	JPanel mainPanel;
 	
 	Color[] useableColors = {Color.BLACK, Color.BLUE, Color.RED, Color.GREEN, Color.WHITE};

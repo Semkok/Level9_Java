@@ -2,9 +2,8 @@ import javax.swing.JPanel;
 import javax.swing.JColorChooser;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.ArrayList;
@@ -36,25 +35,23 @@ public class DrawPanel extends JPanel {
         addMouseListener(new PaintMouseListener());
 
         // Add a mouse motion listener for tracking mouse movement
-        addMouseMotionListener(new PaintMouseMotionListener());
+        addMouseMotionListener(new PaintMouseListener());
         
     }
-
+    
+    @Override 
     protected void paintComponent(Graphics g) {
     	
         super.paintComponent(g);
 
         // convert Graphics object to Graphics2D object
         Graphics2D g2d = (Graphics2D) g;
-        
-        
-        
+       
         for (ColoredPoint coloredPoint : coloredPoints) {
             g2d.setColor(coloredPoint.getColor());
             Point point = coloredPoint.getPoint();
             g2d.fillOval(point.x - 5, point.y - 5, 10, 10);
         }
-
         // Draw the current point when the mouse is pressed and moved
         if (currentPoint != null) {
             g2d.setColor(brushColor); // Set the current brush color
@@ -62,7 +59,7 @@ public class DrawPanel extends JPanel {
         }
     }
 
-    private class PaintMouseListener implements MouseListener {
+    private class PaintMouseListener extends MouseAdapter {
         @Override
         public void mousePressed(MouseEvent e) {
             // Check if the right mouse button is pressed
@@ -80,46 +77,24 @@ public class DrawPanel extends JPanel {
             // Repaint to update the drawing
             repaint();
         }
-
-        // Unneeded but needs to be implemented by MouseListener
-        @Override
-        public void mouseClicked(MouseEvent e) {}
-
-        @Override
-        public void mouseReleased(MouseEvent e) {}
-
-        @Override
-        public void mouseEntered(MouseEvent e) {}
-
-        @Override
-        public void mouseExited(MouseEvent e) {}
-    }
-
-    private class PaintMouseMotionListener implements MouseMotionListener {
-        @Override
+        @Override 
         public void mouseDragged(MouseEvent e) {
             // Update the current point during mouse dragging
             currentPoint = new Point(e.getX(), e.getY());
-
             // Add the current point to the list with the current brush color
             ColoredPoint coloredPoint = new ColoredPoint(currentPoint, brushColor);
             coloredPoints.add(coloredPoint);
-
             // Repaint to update the drawing
             repaint();
         }
-
         @Override
         public void mouseMoved(MouseEvent e) {
             // Update the current point during normal mouse movement
             currentPoint = new Point(e.getX(), e.getY());
-
             // Repaint to update the drawing
             repaint();
         }
     }
-
-    
     // ColordPoint class for retrieving the specific color and point of an drawn object where its drawn on this JPanel
     private class ColoredPoint {
         private Point point;
