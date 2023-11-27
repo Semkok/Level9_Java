@@ -35,7 +35,7 @@ public class ToolBar extends JPanel implements ActionListener{
 		setBackground(new Color(0,6,47));
 		
 		JLabel title = new JLabel("PictoPaint!");
-		title.setFont(new Font("Serif", Font.PLAIN, 40));
+		title.setFont(new Font("Comic Sans MS", Font.PLAIN, 40));
 		title.setForeground(new Color(255,255,255));
 		title.setBounds(-10,0,50,10);
 		add(title);

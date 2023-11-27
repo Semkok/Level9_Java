@@ -15,7 +15,6 @@ public class ApplicationWindow extends JFrame {
 	public final static int WIDTH = (int)screenSize.getWidth() ,HEIGHT = (int)screenSize.getHeight();
 	
 	ApplicationWindow(){
-		System.out.println(HEIGHT);
 		setTitle("PictoPaint");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
