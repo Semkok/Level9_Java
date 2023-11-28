@@ -22,6 +22,10 @@ public class ApplicationWindow extends JFrame {
 		setLocationRelativeTo(null);
 		setLayout(null);
 		setResizable(false);
+		DrawPanel drawPanel = new DrawPanel();
+		ToolBar toolBar = new ToolBar(drawPanel);
+		add(toolBar);
+		add(drawPanel);
 	}
 	
 	

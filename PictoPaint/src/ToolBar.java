@@ -78,6 +78,7 @@ public class ToolBar extends JPanel implements ActionListener{
 	    Graphics2D g2d = image.createGraphics();
 	    
 	    // Draw the content of mainPanel onto the BufferedImage
+	    System.out.println(mainPanel);
 	    mainPanel.paint(g2d);
 	    
 	    g2d.dispose();
