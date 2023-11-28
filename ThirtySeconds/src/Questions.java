@@ -10,6 +10,8 @@ public class Questions {
 	
 	Questions(){
 		getQuestionsFile();
+//		getAnswersFile();
+		System.out.println(questionsList.get(0));
 	}
 	
 	
@@ -19,7 +21,14 @@ public class Questions {
 		    Scanner myReader = new Scanner(myObj);
 		    while (myReader.hasNextLine()) {
 		      String data = myReader.nextLine();
-		      System.out.println(data);
+		      
+		      
+		      if(data.startsWith("question")) {
+		    	  
+		    	  String question = data.replace("question","");
+		    	  questionsList.add(question);
+		    	  System.out.println(question);
+		      }
 		    }
 		    
 		    myReader.close();
@@ -31,7 +40,27 @@ public class Questions {
 	}
 	
 	private void getAnswersFile() {
-		
+		try {
+			File myObj = new File("QuestionsAndAnswers.txt");
+		    Scanner myReader = new Scanner(myObj);
+		    while (myReader.hasNextLine()) {
+		      String data = myReader.nextLine();
+		      
+		      
+		      if(data.startsWith("answer:")) {
+		    	  
+		    	  String answer = data.replace("answer: ","");
+		    	  answerList.add(answer);
+		    	  System.out.println(answer);
+		      }
+		    }
+		    
+		    myReader.close();
+		      
+		} catch(FileNotFoundException e){
+			System.out.println("An error occurred.");
+		      e.printStackTrace();
+		}
 	}
 	
 }
