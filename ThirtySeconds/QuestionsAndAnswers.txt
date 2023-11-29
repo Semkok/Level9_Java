@@ -1,32 +1,32 @@
-question Wat is de hoofstad van polen?
+question: Wat is de hoofstad van polen?
 - Warschau
 - Praag
 - Milaan
 - Berlijn
 answer: Warschau
 
-question Wat is de afstand tussen de maan en aarde?
+question: Wat is de afstand tussen de maan en aarde?
 - 38440km
 - 3844000km
 - 384400km
 - 460000km
 answer: 384400km
 
-question Welke kleur krijg je als je magenta mengt met cyaan?
+question: Welke kleur krijg je als je magenta mengt met cyaan?
 - Rood
 - Oranje
 - Blauw
 - Paars
 answer: Paars 
 
-question Waar ben je bang voor als je cryofobie hebt?
+question: Waar ben je bang voor als je cryofobie hebt?
 - Angst voor kou of ijs
 - Angst voor Spinnen en insecten
 - Angst voor Hoogtes
 - Angst voor Mensen
 answer: Angst voor kou of ijs
 
-question Waarvoor staat de term E.H.B.O.?
+question: Waarvoor staat de term E.H.B.O.?
 - Eerste Hulp Bij Overnamen
 - Eerste Hulp Bij Overvallen
 - Eerste Hulp Bij Ongeluk
