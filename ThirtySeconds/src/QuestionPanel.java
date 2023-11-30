@@ -1,19 +1,13 @@
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-import javax.swing.Box;
-import javax.swing.JLabel;
-
 import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Font;
-
 import java.util.Random;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class QuestionPanel extends JPanel {
 	
-	JLabel questionLabel, fillerAnswer;
 	Questions questions = new Questions();
-	
 	Random random = new Random();
 	
 	int randomQuestionNum;
@@ -21,35 +15,58 @@ public class QuestionPanel extends JPanel {
 	
 	String currentAnswer = "";
 	
+	// for keeping track of the current labels 
+	ArrayList<QuestionLabel> questionLabels = new ArrayList<QuestionLabel>();
+	
 	QuestionPanel(){
 		setBackground(new Color(133, 93, 20));
 		setVisible(true);
-		setCurrentText(questionLabel);
+		addLabelsToArrayList();
+		add(questionLabels.get(0)); // TODO: randomizen
+		
 	}
 	
-	private void setCurrentText(JLabel questionLabel) {
-		questionLabel = new JLabel();
-		questionLabel.setForeground(Color.white);
-		questionLabel.setFont(new Font("Serif", Font.PLAIN, 24));
-		questionLabel.setBounds(0, 10, 400, 200);	
-		randomizeQuestions();
-		System.out.println(currentAnswer);
-		questionLabel.setText("<html>"+ questions.questionsList.get(randomQuestionNum) + "<br>" 
-		        +questions.fillerAnswerList.get(randomFillerNum[0]) + "<br>" 
-				+questions.fillerAnswerList.get(randomFillerNum[1]) + "<br>"
-				+questions.fillerAnswerList.get(randomFillerNum[2]) + "<br>"
-				+questions.fillerAnswerList.get(randomFillerNum[3]) + "<br>" 
-				+ "</html>");
-		this.add(questionLabel);
+	private void addLabelsToArrayList() {
+		for(int i = 0; i < 5; i++) {
+			questionLabels.add(new QuestionLabel());
+		}
+		
+		questionLabels = removeEqualLabels(questionLabels);
 	}
 	
-	private void randomizeQuestions() {
-		 randomQuestionNum = random.nextInt(0,questions.questionsList.size());
-		 currentAnswer = questions.answerList.get(randomQuestionNum);
-		 for(int i = 0; i < randomFillerNum.length; i++ ) {
-			 randomFillerNum[i] = (randomQuestionNum *4) + i;
-		 }
-		 
+	private ArrayList<QuestionLabel> removeEqualLabels(ArrayList<QuestionLabel> questionLabels) {
+		
+		// linkedHashSet for keeping its elements at the same place
+		Set<String> answerList = new LinkedHashSet<String>();
+		
+	
+		while(answerList.size() != questionLabels.size()) {
+			
+			for(int i = 0; i < questionLabels.size(); i++) {
+				
+				answerList.add(questionLabels.get(i).getAnswer());
+				
+				
+				if(answerList.add(questionLabels.get(i).getAnswer()) == false) {
+					questionLabels.remove(i);
+					questionLabels.add(new QuestionLabel());
+				}
+				
+			}
+			
+		}
+		
+		// add question answers from the arraylist 		
+		
+		
+		
+		
+		for(String a : answerList ) {
+			System.out.println(a);
+		}
+		
+		return questionLabels;
+		
 	}
 	
 }

@@ -12,7 +12,6 @@ public class Questions {
 		fillQuestionsAndAnswers();
 	}
 	
-	
 	private void fillQuestionsAndAnswers() {
 		// this method gets all the questions and answers and fillerAnswers from the text file
 		try {
