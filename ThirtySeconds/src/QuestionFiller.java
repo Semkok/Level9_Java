@@ -1,19 +1,23 @@
-import java.util.ArrayList;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Questions {
-	final ArrayList<String> questionsList = new ArrayList<String>();
-	final ArrayList<String> answerList = new ArrayList<String>();
-	final ArrayList<String> fillerAnswerList = new ArrayList<String>();
+import javax.swing.JLabel;
+
+public class QuestionFiller {
 	
-	Questions(){
+	final ArrayList<Question> questionsList = new ArrayList<Question>();
+	final ArrayList<Answer> answerList = new ArrayList<Answer>();
+	final ArrayList<FillerAnswer> fillerAnswerList = new ArrayList<FillerAnswer>();
+	
+	QuestionFiller(){
 		fillQuestionsAndAnswers();
 	}
 	
 	private void fillQuestionsAndAnswers() {
 		// this method gets all the questions and answers and fillerAnswers from the text file
+		
 		try {
 			File myObj = new File("QuestionsAndAnswers.txt");
 		    Scanner myReader = new Scanner(myObj);
@@ -22,15 +26,16 @@ public class Questions {
 		      if(data.startsWith("question:")) {
 		    	  String question = data.replace("question:","");
 		    	  // Trim to remove the unneeded whitespace
-		    	  questionsList.add(question.trim());
+		    	  questionsList.add(new Question(question.trim()));
+		    	 
 		      }
 		      else if(data.startsWith("answer:")) {
 		    	  String answer = data.replace("answer:","");   	  
-		    	  answerList.add(answer.trim());
+		    	  answerList.add(new Answer(answer.trim()));
 		      }
 		      else if(data.startsWith("-")) {
-		    	  String fillerAnswer = data;
-		    	  fillerAnswerList.add(fillerAnswer.trim());
+		    	  String fillerAnswer = data;    	  
+		    	  fillerAnswerList.add(new FillerAnswer(fillerAnswer.trim()));
 		      }
 		    }
 		    myReader.close();
