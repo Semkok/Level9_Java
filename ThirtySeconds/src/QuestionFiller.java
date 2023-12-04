@@ -12,6 +12,7 @@ public class QuestionFiller {
 	final ArrayList<FillerAnswer> fillerAnswerList = new ArrayList<FillerAnswer>();
 	
 	QuestionFiller(){
+		// files all the ArrayLists with questions,answers and fillerAnswers 
 		fillQuestionsAndAnswers();
 	}
 	

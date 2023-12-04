@@ -2,7 +2,6 @@ public class Question {
 	
 	private String question;
 
-	
 	Question(String question){
 		this.question = question;
 	}

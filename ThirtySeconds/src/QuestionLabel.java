@@ -7,13 +7,10 @@ import java.util.Random;
 public class QuestionLabel extends JLabel {
 	
 	QuestionLabel(){
-		setVisible(true);
 		setFont(new Font("Serif", Font.PLAIN, 24));
 		setForeground(Color.white);
-	}
-	
-	public void getRandomQuestion() {
-		
+		setBounds(0,0,120,120);
+		setVisible(true);
 	}
 	
 }
