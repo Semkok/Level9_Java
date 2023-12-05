@@ -13,7 +13,6 @@ public class CurrentQuestion {
 		return this.question.getQuestion();
 	}
 	
-	
 	public String getFormattedQuestion() {
 		return "<html>" + this.question.getQuestion() + "<br>";
 	}

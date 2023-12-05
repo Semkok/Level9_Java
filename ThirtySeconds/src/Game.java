@@ -1,11 +1,10 @@
-import java.awt.BorderLayout;
-
-import javax.swing.JPanel;
 public class Game {
+	
+	boolean gameStarted = false;
+	
 	Game(){
-		GameFrame gameFrame = new GameFrame();
+		GameFrame gameFrame = new GameFrame(this);
 		QuestionHandler questionHandler = new QuestionHandler();
-		questionHandler.setFirstQuestion(gameFrame.gamePanel);
 		
 		
 	}

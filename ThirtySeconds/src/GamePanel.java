@@ -1,6 +1,7 @@
 import java.awt.Color;
+
 import javax.swing.JPanel;
-import java.util.ArrayList;
+
 public class GamePanel extends JPanel {
 	final static int WIDTH = 800;
 	final static int HEIGHT = 600;

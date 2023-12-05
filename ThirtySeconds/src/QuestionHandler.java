@@ -17,8 +17,6 @@ public class QuestionHandler {
 	// for holding all of the questions which are accessed for JLabels and input answer
 	private ArrayList<CurrentQuestion> allQuestions =  new ArrayList<CurrentQuestion>();
 	
-	
-	
 	// gets the questions,answers,filleranswers from the text file 
 	private QuestionFiller filler = new QuestionFiller();
 	
@@ -32,19 +30,14 @@ public class QuestionHandler {
 		// shuffles the quizpanels ArrayList so the questions are in random order
 		randomizeOrderQuestions();
 		
-		for(QuizPanel quiz : quizPanels) {
-			System.out.println(quiz.question.getCurrentQuestion());
-			System.out.println(quiz.question.getCurrentAnswer());
-			
-		}
-		System.out.println();
-		System.out.println(quizPanels.get(currentQuestionNumber).question);
 		
 	}
 	
 	// removes the current question and goes to the next one 
 	public void setFirstQuestion(GamePanel gamePanel) {
 		gamePanel.add(quizPanels.get(currentQuestionNumber));
+		setNewQuestion();
+		System.out.println(question.getCurrentAnswer());
 	}
 	
 	// removes the currentQuestion from the gamePanel and gets the next one
@@ -54,9 +47,13 @@ public class QuestionHandler {
 		gamePanel.revalidate();
 		currentQuestionNumber++;
 		gamePanel.add(quizPanels.get(currentQuestionNumber));
+		// set the new question 
+		setNewQuestion();
+		
+		System.out.println(question.getCurrentAnswer());
 	}
 	
-	private void setNewAttributes() {
+	private void setNewQuestion() {
 		question = quizPanels.get(currentQuestionNumber).question;
 	}
 	
