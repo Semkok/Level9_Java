@@ -1,21 +1,19 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-import javax.swing.JPanel;
-
 public class QuestionHandler {
 	
 	// the current question that is present 
 	public CurrentQuestion question;
 	
 	// begin at the 0 question
-	private int currentQuestionNumber = 0;
+	public int currentQuestionNumber = 0;
 	
 	// different quizPanels to show different screens with questions 
 	private ArrayList<QuizPanel> quizPanels = new ArrayList<QuizPanel>();
 	
 	// for holding all of the questions which are accessed for JLabels and input answer
-	private ArrayList<CurrentQuestion> allQuestions =  new ArrayList<CurrentQuestion>();
+	public ArrayList<CurrentQuestion> allQuestions =  new ArrayList<CurrentQuestion>();
 	
 	// gets the questions,answers,filleranswers from the text file 
 	private QuestionFiller filler = new QuestionFiller();
@@ -30,11 +28,14 @@ public class QuestionHandler {
 		// shuffles the quizpanels ArrayList so the questions are in random order
 		randomizeOrderQuestions();
 		
-		
 	}
 	
 	// removes the current question and goes to the next one 
 	public void setFirstQuestion(GamePanel gamePanel) {
+		
+		gamePanel.removeAll();
+		gamePanel.repaint();
+		gamePanel.revalidate();
 		gamePanel.add(quizPanels.get(currentQuestionNumber));
 		setNewQuestion();
 		System.out.println(question.getCurrentAnswer());
@@ -42,17 +43,25 @@ public class QuestionHandler {
 	
 	// removes the currentQuestion from the gamePanel and gets the next one
 	public void removeAndSetNewQuestion(GamePanel gamePanel) {
-		gamePanel.removeAll();
-		gamePanel.repaint();
-		gamePanel.revalidate();
-		currentQuestionNumber++;
-		gamePanel.add(quizPanels.get(currentQuestionNumber));
-		// set the new question 
-		setNewQuestion();
 		
-		System.out.println(question.getCurrentAnswer());
+		if(currentQuestionNumber <= allQuestions.size() - 1) {
+			gamePanel.removeAll();
+			gamePanel.repaint();
+			gamePanel.revalidate();
+			currentQuestionNumber++;
+			gamePanel.add(quizPanels.get(currentQuestionNumber));
+			// set the new question 
+			setNewQuestion();
+			
+			System.out.println(question.getCurrentAnswer());
+		}
+		else {
+			
+		}
+		
 	}
 	
+	// updates the question attributes for the questionHandler
 	private void setNewQuestion() {
 		question = quizPanels.get(currentQuestionNumber).question;
 	}

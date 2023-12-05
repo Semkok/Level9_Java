@@ -10,6 +10,5 @@ public class GamePanel extends JPanel {
 		setBounds(200,200,WIDTH,HEIGHT);
 		setBackground(new Color(133, 93, 20));
 		setLayout(null);
-		
 	}
 }
