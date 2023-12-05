@@ -43,22 +43,19 @@ public class QuestionHandler {
 	
 	// removes the currentQuestion from the gamePanel and gets the next one
 	public void removeAndSetNewQuestion(GamePanel gamePanel) {
-		
-		if(currentQuestionNumber <= allQuestions.size() - 1) {
-			gamePanel.removeAll();
-			gamePanel.repaint();
-			gamePanel.revalidate();
+		System.out.println(currentQuestionNumber);
+		gamePanel.removeAll();
+		gamePanel.repaint();
+		gamePanel.revalidate();
+		if(currentQuestionNumber < allQuestions.size() -1) {
 			currentQuestionNumber++;
-			gamePanel.add(quizPanels.get(currentQuestionNumber));
-			// set the new question 
-			setNewQuestion();
-			
-			System.out.println(question.getCurrentAnswer());
-		}
-		else {
-			
 		}
 		
+		gamePanel.add(quizPanels.get(currentQuestionNumber));
+		// set the new question 
+		setNewQuestion();
+		
+		System.out.println(question.getCurrentAnswer());
 	}
 	
 	// updates the question attributes for the questionHandler

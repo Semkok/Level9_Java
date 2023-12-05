@@ -17,6 +17,11 @@ public class CurrentQuestion {
 		return "<html>" + this.question.getQuestion() + "<br>";
 	}
 	
+	public FillerAnswer[] getCurrentfillerAnswersArray(){
+		// in HTML format for QuestionLabel
+		return  this.fillerAnswers;
+	}
+	
 	public String getCurrentfillerAnswers(){
 		// in HTML format for QuestionLabel
 		return  this.fillerAnswers[0].getFillerAnswer() +  "<br>" + this.fillerAnswers[1].getFillerAnswer() +  "<br>" + this.fillerAnswers[2].getFillerAnswer() +  "<br>" + this.fillerAnswers[3].getFillerAnswer() +  "<br>" + "</html>";

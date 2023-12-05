@@ -3,8 +3,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.swing.JLabel;
-
 public class QuestionFiller {
 	
 	final ArrayList<Question> questionsList = new ArrayList<Question>();
