@@ -18,12 +18,18 @@ public class QuestionHandler {
 	// gets the questions,answers,filleranswers from the text file 
 	private QuestionFiller filler = new QuestionFiller();
 	
+	private ScoreHandler scoreHandler;
+	
+	
 	QuestionHandler(){
 		// when an instance is created it will fill all the question attributes in the allQuestions ArrayList
 		fillQuestions();
 		
 		// fill the arrayList of quizPanels
 		fillQuizPanels();
+		
+		// make a new ScoreHandler object
+		scoreHandler = new ScoreHandler();
 		
 		// shuffles the quizpanels ArrayList so the questions are in random order
 		randomizeOrderQuestions();
@@ -32,10 +38,7 @@ public class QuestionHandler {
 	
 	// removes the current question and goes to the next one 
 	public void setFirstQuestion(GamePanel gamePanel) {
-		
-		gamePanel.removeAll();
-		gamePanel.repaint();
-		gamePanel.revalidate();
+		clearQuestionPanel(gamePanel);
 		gamePanel.add(quizPanels.get(currentQuestionNumber));
 		setNewQuestion();
 		System.out.println(question.getCurrentAnswer());
@@ -43,10 +46,12 @@ public class QuestionHandler {
 	
 	// removes the currentQuestion from the gamePanel and gets the next one
 	public void removeAndSetNewQuestion(GamePanel gamePanel) {
+		
 		System.out.println(currentQuestionNumber);
-		gamePanel.removeAll();
-		gamePanel.repaint();
-		gamePanel.revalidate();
+		
+		checkScore(quizPanels.get(currentQuestionNumber));
+		
+		clearQuestionPanel(gamePanel);
 		if(currentQuestionNumber < allQuestions.size() -1) {
 			currentQuestionNumber++;
 		}
@@ -56,6 +61,16 @@ public class QuestionHandler {
 		setNewQuestion();
 		
 		System.out.println(question.getCurrentAnswer());
+	}
+	
+	private void checkScore(QuizPanel quizPanel) {
+		scoreHandler.checkQuestion(quizPanel,question);
+	}
+	
+	private void clearQuestionPanel(GamePanel gamePanel) {
+		gamePanel.removeAll();
+		gamePanel.repaint();
+		gamePanel.revalidate();
 	}
 	
 	// updates the question attributes for the questionHandler

@@ -1,5 +1,10 @@
 import javax.swing.Timer;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
 public class Game {
 	
 	boolean gameStarted = false;
@@ -11,18 +16,34 @@ public class Game {
 	GameFrame gameFrame;
 	QuestionHandler questionHandler;
 	
-	
 	public int timeRemaining = 5;
 	public int timerExecutionCount = 0;
 	
 	Game(){
 		gameFrame = new GameFrame();
-		questionHandler = new QuestionHandler();		
-		questionHandler.setFirstQuestion(gameFrame.gamePanel);
-        createCountDownTimer();
-        countdownTimer.start();
-
+		questionHandler = new QuestionHandler();
+		
+		JButton startGameButton = new JButton();
+		
+		startGameButton.addActionListener(new StartGame());
+		
+		startGameButton.setBounds(290,300,200,80);
+		
+		gameFrame.gamePanel.add(startGameButton);
 	}
+	
+	
+	private class StartGame implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			questionHandler.setFirstQuestion(gameFrame.gamePanel);
+	        createCountDownTimer();
+	        countdownTimer.start();
+		}
+		
+	}
+	
 	
 	private void createCountDownTimer() {
 		
