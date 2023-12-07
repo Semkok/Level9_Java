@@ -86,20 +86,14 @@ public class QuestionHandler {
 	private void fillQuizPanels() {
 		for(CurrentQuestion question : allQuestions) {
 			
-			QuizPanel quizPanel =  new QuizPanel(question);
-			
-			QuestionLabel questionLabel = new QuestionLabel();
-			
-			questionLabel.setText(question.getFormattedQuestion() + question.getCurrentfillerAnswers());
-			
-			quizPanel.add(questionLabel);
-			
+			QuizPanel quizPanel =  new QuizPanel(question, new QuestionLabel(question.getFormattedQuestion() + question.getCurrentfillerAnswers()));
 			quizPanels.add(quizPanel);
 		}
 	}
 	
 	// fills the arrayList of currentQuestion objects 
 	private void fillQuestions() {
+		
 		int numberOfFillerAnswers = 4;
 		
 		for(int i = 0; i < filler.questionsList.size(); i++) {

@@ -18,7 +18,7 @@ public class TimerPanel extends JPanel {
 		timerLabel = new JLabel("Time remaining: ");
         timerLabel.setBounds(10, 10, 200, 30);
         timerLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        timerLabel.setForeground(Color.WHITE);
+        timerLabel.setForeground(Color.BLACK);
         add(timerLabel);
 	}
 	

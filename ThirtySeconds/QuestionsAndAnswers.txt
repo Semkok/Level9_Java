@@ -32,3 +32,10 @@ question: Waarvoor staat de term E.H.B.O.?
 - Eerste Hulp Bij Ongeluk
 - Eerste Hulp Bij Ongevallen
 answer: Eerste Hulp Bij Ongevallen
+
+question: Wie is Sem?
+- Een putjeschepper
+- Een programmeur
+- Een idioot
+- Een piloot
+answer: Een programmeur 

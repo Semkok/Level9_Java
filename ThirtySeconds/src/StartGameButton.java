@@ -5,15 +5,12 @@ import javax.swing.JButton;
 
 public class StartGameButton extends JButton {
 	
-	
-	
 	StartGameButton(){
 		
 		setBounds(300,300,200,100);
 		setText("Start the quiz!");
 		addActionListener(new StartGame());
 	}
-	
 	
 	private class StartGame implements ActionListener{
 
