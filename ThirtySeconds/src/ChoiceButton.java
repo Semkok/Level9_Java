@@ -12,7 +12,6 @@ public class ChoiceButton extends JButton {
 
 	private String fillerAnswer;
 	
-//	private ArrayList<Boolean> buttonInfo = new ArrayList<Boolean>();
 	
 	private QuizPanel quizPanel;
 	

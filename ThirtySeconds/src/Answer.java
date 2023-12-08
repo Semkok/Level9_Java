@@ -1,9 +1,6 @@
 /*
  * The Answer class is a class for making a new answer value
- * 
- * 
  * */
-
 public class Answer {
 	
 	private String name;

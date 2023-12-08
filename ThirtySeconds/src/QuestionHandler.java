@@ -20,7 +20,6 @@ public class QuestionHandler {
 	
 	public ScoreHandler scoreHandler;
 	
-	
 	QuestionHandler(){
 		// when an instance is created it will fill all the question attributes in the allQuestions ArrayList
 		fillQuestions();
