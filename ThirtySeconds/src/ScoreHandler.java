@@ -25,4 +25,12 @@ public class ScoreHandler {
 	
 	}
 	
+	public int getTimesRight() {
+		return this.timesRight;
+	}
+	
+	public int getTimesWrong() {
+		return this.timesWrong;
+	}
+	
 }

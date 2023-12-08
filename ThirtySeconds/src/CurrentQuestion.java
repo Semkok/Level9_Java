@@ -1,3 +1,8 @@
+/*
+ * The CurrentQuestion class is a class used for grouping all the questions and answers and fillerAnswers
+ * so that they can be treated as one CurrentQuestion
+ * */
+
 public class CurrentQuestion {
 	private Question question;
 	private Answer answer;

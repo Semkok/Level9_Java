@@ -16,13 +16,12 @@ public class Game {
 	GameFrame gameFrame;
 	QuestionHandler questionHandler;
 	
-	public int timeRemaining = 5;
+	
+	public int timeRemaining = 1;
 	public int timerExecutionCount = 0;
 	
 	Game(){
 		gameFrame = new GameFrame();
-		questionHandler = new QuestionHandler();
-		
 		JButton startGameButton = new JButton();
 		
 		startGameButton.addActionListener(new StartGame());
@@ -33,13 +32,15 @@ public class Game {
 	}
 	
 	
-	private class StartGame implements ActionListener{
+	public class StartGame implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			questionHandler = new QuestionHandler();
 			questionHandler.setFirstQuestion(gameFrame.gamePanel);
 	        createCountDownTimer();
 	        countdownTimer.start();
+	        
 		}
 		
 	}
@@ -49,9 +50,11 @@ public class Game {
 		
 		countdownTimer = new Timer(1000, e -> {
             	
-            	if (timerExecutionCount == questionHandler.allQuestions.size()) {
+            	if (timerExecutionCount == questionHandler.allQuestions.size() / 2) {
                 	// stops the timer
                     countdownTimer.stop();
+                    ScorePanel scorePanel = new ScorePanel(gameFrame,questionHandler.scoreHandler.getTimesRight(),questionHandler.scoreHandler.getTimesWrong(),countdownTimer);
+        	        questionHandler.scoreHandler.getTimesRight();
                 }
             	else if(timeRemaining > 0) {
 					gameFrame.timerPanel.updateTimerLabel(timeRemaining);// Update the timer label
@@ -61,9 +64,10 @@ public class Game {
 				}
 				else {
 					System.out.println("Time's up!");
-	                timeRemaining = 5;  // Reset the timer for the next execution
+	                timeRemaining = 1;  // Reset the timer for the next execution
 	                timerExecutionCount++;
 	                questionHandler.removeAndSetNewQuestion(gameFrame.gamePanel);
+	                
 				}	
         });
         

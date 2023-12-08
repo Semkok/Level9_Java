@@ -1,11 +1,18 @@
+/*
+ * The Answer class is a class for making a new answer value
+ * 
+ * 
+ * */
+
 public class Answer {
-	private String answer;
 	
-	Answer(String answer){
-		this.answer = answer;
+	private String name;
+	
+	Answer(String name){
+		this.name = name;
 	}
 	
 	public String getAnswer() {
-		return this.answer;
+		return this.name;
 	}
 }

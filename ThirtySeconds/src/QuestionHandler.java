@@ -16,9 +16,9 @@ public class QuestionHandler {
 	public ArrayList<CurrentQuestion> allQuestions =  new ArrayList<CurrentQuestion>();
 	
 	// gets the questions,answers,filleranswers from the text file 
-	private QuestionFiller filler = new QuestionFiller();
+	private QuestionFiller filler = new QuestionFiller("QuestionsAndAnswers.txt");
 	
-	private ScoreHandler scoreHandler;
+	public ScoreHandler scoreHandler;
 	
 	
 	QuestionHandler(){
@@ -64,7 +64,7 @@ public class QuestionHandler {
 	}
 	
 	private void checkScore(QuizPanel quizPanel) {
-		scoreHandler.checkQuestion(quizPanel,question);
+		scoreHandler.checkQuestion(quizPanel,this.question);
 	}
 	
 	private void clearQuestionPanel(GamePanel gamePanel) {

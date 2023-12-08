@@ -33,9 +33,79 @@ question: Waarvoor staat de term E.H.B.O.?
 - Eerste Hulp Bij Ongevallen
 answer: Eerste Hulp Bij Ongevallen
 
-question: Wie is Sem?
-- Een putjeschepper
-- Een programmeur
-- Een idioot
-- Een piloot
-answer: Een programmeur 
+question: Hoeveel toetsen heeft een klassieke piano?
+- 80
+- 88
+- 84
+- 82
+answer: 88
+
+question: Wanneer zijn winkelwagentjes voor het eerst gebruikt?
+- 4 juni 1937
+- 5 juni 1954
+- 10 september 1970
+- 8 april 1944
+answer: 4 juni 1937
+
+question: Wie heeft de windmolen uitgevonden?
+- Nikola Tesla
+- Charles F. Brush.
+- Thomas Edison
+- Albert Einstein
+answer: Charles F. Brush.
+
+question: In welk jaar is Abraham Lincoln vermoord?
+- 1870
+- 1890
+- 1865
+- 1854
+answer: 1865
+
+question: Wie was de ontdekker van zwaartekracht?
+- Aristoteles
+- Isaac Newton
+- Albert Einstein
+- Galileo Galilei
+answer: Isaac Newton
+
+question: Waar was de eerste computer uitgevonden?
+- Amerika
+- Frankrijk
+- Engeland
+- Duitsland
+answer: Engeland
+
+question: Hoeveel strepen staan er op de Amerikaanse vlag?
+- 13 
+- 14
+- 15
+- 16
+answer: 13 
+
+question: Wat is het kleinste land ter wereld? 
+- Monaco
+- Het Vaticaan
+- Luxemburg
+- Aruba
+answer: Het Vaticaan
+
+question: Wat is de hoofdstad van Canada?
+- Toronto
+- Montreal
+- Ottawa
+- Vancouver 
+answer: Ottawa
+
+question: Wanneer hebben ze de Londense metro geopend?
+- 1888
+- 1900
+- 1863
+- 1902
+answer: 1863
+
+question: Wat is de nationale bloem van Japan?
+- Tulp
+- Akelei
+- Kersenbloesem
+- Dille
+answer: Kersenbloesem
