@@ -1,26 +1,21 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-
 import javax.swing.JPanel;
 
+/*
+ * QuizPanel class for displaying a panel with the fillerAnswers and the ChoiceButtons
+ * */
 public class QuizPanel extends JPanel {
 	final static int WIDTH = 700;
 	final static int HEIGHT = 400;
 	
 	CurrentQuestion question;
-	ChoiceButton[] choiceButtons = new ChoiceButton[4];
+	
+	ChoiceButton[] choiceButtons = new ChoiceButton[4]; // TODO: 4 is a magic number it needs to be replaced
 	
 	// default value so if the choiceButton gets compared it won't bring a nullPointerException
 	ChoiceButton clickedButton = new ChoiceButton("", "", null);
 	
 	QuizPanel(CurrentQuestion currentQuestion,QuestionLabel questionLabel){
-		setLayout(new FlowLayout());
-		
-		questionLabel.setPreferredSize(new Dimension(700,300));
-		
-		
 		add(questionLabel);
 		this.question = currentQuestion;
 		int index = 0;
@@ -33,11 +28,6 @@ public class QuizPanel extends JPanel {
 			index++;
 		}
 		
-	}
-	
-	public String getClickedButton() {
-		
-		return this.clickedButton.getButtonValue();
 	}
 
 }

@@ -6,7 +6,6 @@ public class QuestionHandler {
 	// the current question that is present 
 	public CurrentQuestion question;
 	
-	// begin at the 0 question
 	public int currentQuestionNumber = 0;
 	
 	// different quizPanels to show different screens with questions 
@@ -85,7 +84,7 @@ public class QuestionHandler {
 	private void fillQuizPanels() {
 		for(CurrentQuestion question : allQuestions) {
 			
-			QuizPanel quizPanel =  new QuizPanel(question, new QuestionLabel(question.getFormattedQuestion() + question.getCurrentfillerAnswers()));
+			QuizPanel quizPanel =  new QuizPanel(question, new QuestionLabel(question.getQuestionInHTML()));
 			quizPanels.add(quizPanel);
 		}
 	}
@@ -93,7 +92,7 @@ public class QuestionHandler {
 	// fills the arrayList of currentQuestion objects 
 	private void fillQuestions() {
 		
-		int numberOfFillerAnswers = 4;
+		int numberOfFillerAnswers = 4; // TODO: needs to be a not magic number for questions with more or less than 4 filler answers 
 		
 		for(int i = 0; i < filler.questionsList.size(); i++) {
 			// every question has a four filler answers so if the index of the loop is equal to 1 then (i * numberOfFillerAnswers ) + 1 = 5 of the fillerAnswerList

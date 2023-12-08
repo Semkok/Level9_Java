@@ -9,8 +9,6 @@ public class TimerPanel extends JPanel {
 	final int HEIGHT = 100;
 	private JLabel timerLabel;
 	
-	
-	
 	TimerPanel(){
 		setBounds(1000,0,WIDTH,HEIGHT);
 		setBackground(Color.cyan);

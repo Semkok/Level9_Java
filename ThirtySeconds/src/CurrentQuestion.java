@@ -18,8 +18,13 @@ public class CurrentQuestion {
 		return this.question.getQuestion();
 	}
 	
-	public String getFormattedQuestion() {
-		return "<html>" + this.question.getQuestion() + "<br>";
+	// in HTML format so that the text can have a layout under each other
+	public String getQuestionInHTML() {
+		return "<html>" + this.question.getQuestion() + "<br>" +
+		this.fillerAnswers[0].getFillerAnswer() +  "<br>" +
+		this.fillerAnswers[1].getFillerAnswer() +  "<br>" +
+		this.fillerAnswers[2].getFillerAnswer() +  "<br>" + 
+		this.fillerAnswers[3].getFillerAnswer() +  "<br>" + "</html>";
 	}
 	
 	public FillerAnswer[] getCurrentfillerAnswersArray(){
@@ -27,9 +32,9 @@ public class CurrentQuestion {
 		return  this.fillerAnswers;
 	}
 	
-	public String getCurrentfillerAnswers(){
+	public FillerAnswer[] getCurrentfillerAnswers(){
 		// in HTML format for QuestionLabel
-		return  this.fillerAnswers[0].getFillerAnswer() +  "<br>" + this.fillerAnswers[1].getFillerAnswer() +  "<br>" + this.fillerAnswers[2].getFillerAnswer() +  "<br>" + this.fillerAnswers[3].getFillerAnswer() +  "<br>" + "</html>";
+		return  this.fillerAnswers;
 	}
 	public String getCurrentAnswer() {
 		return this.answer.getAnswer();

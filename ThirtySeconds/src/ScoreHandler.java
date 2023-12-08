@@ -1,10 +1,11 @@
+/*
+ * ScoreHandler class for keeping track of the score a quiz player achieves  
+ * */
 public class ScoreHandler {
 	private int timesRight = 0;
 	private int timesWrong = 0;
 	
-	ScoreHandler(){
-		
-	}
+	
 	
 	public void checkQuestion(QuizPanel quizPanel,CurrentQuestion currentQuestion) {
 		String correctAnswer = currentQuestion.getCurrentAnswer(); 
