@@ -68,12 +68,12 @@ question: Wie was de ontdekker van zwaartekracht?
 - Galileo Galilei
 answer: Isaac Newton
 
-question: Waar was de eerste computer uitgevonden?
-- Amerika
-- Frankrijk
-- Engeland
-- Duitsland
-answer: Engeland
+question: Welke kleur heeft de laatste letter van het logo van Google?
+- Geel
+- Groen
+- Blauw
+- Rood
+answer: Rood
 
 question: Hoeveel strepen staan er op de Amerikaanse vlag?
 - 13 

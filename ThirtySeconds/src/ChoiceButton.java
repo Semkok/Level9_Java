@@ -36,7 +36,7 @@ public class ChoiceButton extends JButton {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			getChoiceButton();
-			setBackground(Color.blue);
+			setBackground(Color.CYAN);
 		}
 		
 	}

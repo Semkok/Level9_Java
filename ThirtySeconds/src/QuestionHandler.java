@@ -6,7 +6,7 @@ public class QuestionHandler {
 	// the current question that is present 
 	public CurrentQuestion question;
 	
-	public int currentQuestionNumber = 0;
+	public int currentQuestionNumber = 1;
 	
 	// different quizPanels to show different screens with questions 
 	private ArrayList<QuizPanel> quizPanels = new ArrayList<QuizPanel>();
@@ -46,13 +46,9 @@ public class QuestionHandler {
 	public void removeAndSetNewQuestion(GamePanel gamePanel) {
 		
 		System.out.println(currentQuestionNumber);
-		
 		checkScore(quizPanels.get(currentQuestionNumber));
-		
 		clearQuestionPanel(gamePanel);
-		if(currentQuestionNumber < allQuestions.size() -1) {
-			currentQuestionNumber++;
-		}
+		currentQuestionNumber++;
 		
 		gamePanel.add(quizPanels.get(currentQuestionNumber));
 		// set the new question 

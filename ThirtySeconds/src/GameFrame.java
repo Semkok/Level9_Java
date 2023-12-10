@@ -2,6 +2,9 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
+/*
+ * The GameFrame class is used for holding all of the Panels for the QuizGame
+ * */
 
 public class GameFrame extends JFrame {
 	
@@ -16,7 +19,9 @@ public class GameFrame extends JFrame {
 		getContentPane().setBackground(Color.black);
 		setTitle("Quiz game");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		setIconImage(new ImageIcon("dice.png").getImage());
+		
 		setLocationRelativeTo(null);
 		setVisible(true);
 		setLayout(null);
@@ -25,8 +30,4 @@ public class GameFrame extends JFrame {
 		add(timerPanel);
 		
 	}
-	
-
-	
-	
 }

@@ -17,7 +17,7 @@ public class GamePanel extends JPanel {
 	GamePanel(){
 		setBounds(200,200,WIDTH,HEIGHT);
 		setBackground(new Color(133, 93, 20));
-		titleText = new JLabel("Welcome to the Quiz!!!");
+		titleText = new JLabel("Welcom bij de quiz!!!");
 		titleText.setFont(new Font("Arial", Font.PLAIN, 32));
 		titleText.setForeground(Color.WHITE);
 		titleText.setBounds(225, 0, 400, 200);
