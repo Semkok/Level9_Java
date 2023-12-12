@@ -27,15 +27,12 @@ public class CurrentQuestion {
 		this.fillerAnswers[3].getFillerAnswer() +  "<br>" + "</html>";
 	}
 	
-	public FillerAnswer[] getCurrentfillerAnswersArray(){
-		// in HTML format for QuestionLabel
-		return  this.fillerAnswers;
-	}
-	
 	public FillerAnswer[] getCurrentfillerAnswers(){
 		// in HTML format for QuestionLabel
 		return  this.fillerAnswers;
 	}
+	
+	
 	public String getCurrentAnswer() {
 		return this.answer.getAnswer();
 	}

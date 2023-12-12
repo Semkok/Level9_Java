@@ -10,8 +10,6 @@ import javax.swing.JButton;
 
 public class ChoiceButton extends JButton {
 	
-	// boolean for knowing if the button is the correct button for the quiz question
-	private boolean isAnswerButton;
 	
 	private String fillerAnswer;
 	
@@ -21,18 +19,13 @@ public class ChoiceButton extends JButton {
 		this.quizPanel = quizPanel;
 		this.fillerAnswer = fillerAnswer;
 		
-		// if the button its fillerAnswer text is equals to the answer then this button is the answerButton
-		if(answer.equals(fillerAnswer)) {
-			this.isAnswerButton = true;
-		}
-		
 		setPreferredSize(new Dimension(325,40));
 		setText(fillerAnswer);
-		addActionListener(new ActionButton());
+		addActionListener(new ButtonAction());
 	}
 	
 	
-	private class ActionButton implements ActionListener{
+	private class ButtonAction implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			getChoiceButton();

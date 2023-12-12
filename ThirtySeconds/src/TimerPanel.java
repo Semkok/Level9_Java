@@ -5,8 +5,8 @@ import java.awt.Font;
 
 public class TimerPanel extends JPanel {
 	
-	final int WIDTH = 200;
-	final int HEIGHT = 100;
+	private final int WIDTH = 200;
+	private final int HEIGHT = 100;
 	private JLabel timerLabel;
 	
 	TimerPanel(){

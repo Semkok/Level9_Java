@@ -3,14 +3,14 @@
  * */
 public class Question {
 	
-	private String name;
+	private String value;
 
-	Question(String question){
-		this.name = question;
+	Question(String value){
+		this.value = value;
 	}
 	
 	public String getQuestion(){
-		return this.name;
+		return this.value;
 	}
 	
 }

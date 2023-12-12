@@ -3,13 +3,13 @@
  * */
 public class Answer {
 	
-	private String name;
+	private String value;
 	
-	Answer(String name){
-		this.name = name;
+	Answer(String value){
+		this.value = value;
 	}
 	
 	public String getAnswer() {
-		return this.name;
+		return this.value;
 	}
 }

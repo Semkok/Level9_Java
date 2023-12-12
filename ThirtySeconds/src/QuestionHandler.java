@@ -22,16 +22,12 @@ public class QuestionHandler {
 	QuestionHandler(){
 		// when an instance is created it will fill all the question attributes in the allQuestions ArrayList
 		fillQuestions();
-		
 		// fill the arrayList of quizPanels
 		fillQuizPanels();
-		
 		// make a new ScoreHandler object
 		scoreHandler = new ScoreHandler();
-		
 		// shuffles the quizpanels ArrayList so the questions are in random order
 		randomizeOrderQuestions();
-		
 	}
 	
 	// removes the current question and goes to the next one 
@@ -44,15 +40,16 @@ public class QuestionHandler {
 	
 	// removes the currentQuestion from the gamePanel and gets the next one
 	public void removeAndSetNewQuestion(GamePanel gamePanel) {
-		
-		System.out.println(currentQuestionNumber);
 		checkScore(quizPanels.get(currentQuestionNumber));
 		clearQuestionPanel(gamePanel);
 		currentQuestionNumber++;
 		
+		// adds a new question while half of the quizPanels have not been displayed
+		if(currentQuestionNumber <= quizPanels.size() / 2) {
 		gamePanel.add(quizPanels.get(currentQuestionNumber));
 		// set the new question 
 		setNewQuestion();
+		}
 		
 		System.out.println(question.getCurrentAnswer());
 	}
@@ -73,13 +70,13 @@ public class QuestionHandler {
 	}
 	
 	// randomises the order of currentQuestions in the ArrayList
-	public void randomizeOrderQuestions() {
+	private void randomizeOrderQuestions() {
 		Collections.shuffle(quizPanels);
 	}
 	
 	private void fillQuizPanels() {
 		for(CurrentQuestion question : allQuestions) {
-			
+		
 			QuizPanel quizPanel =  new QuizPanel(question, new QuestionLabel(question.getQuestionInHTML()));
 			quizPanels.add(quizPanel);
 		}
@@ -90,7 +87,7 @@ public class QuestionHandler {
 		
 		int numberOfFillerAnswers = 4; // TODO: needs to be a not magic number for questions with more or less than 4 filler answers 
 		
-		for(int i = 0; i < filler.questionsList.size(); i++) {
+		for(int i = 0; i < filler.getQuestionsList().size(); i++) {
 			// every question has a four filler answers so if the index of the loop is equal to 1 then (i * numberOfFillerAnswers ) + 1 = 5 of the fillerAnswerList
 			// this way every question its filler answers can be added to an array in a specific question 
 			FillerAnswer[] fillerAnswers = {filler.fillerAnswerList.get((i * numberOfFillerAnswers)),filler.fillerAnswerList.get((i * numberOfFillerAnswers) + 1),filler.fillerAnswerList.get((i * numberOfFillerAnswers) + 2),filler.fillerAnswerList.get((i * numberOfFillerAnswers) + 3)};

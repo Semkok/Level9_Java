@@ -8,8 +8,8 @@ import javax.swing.JFrame;
 
 public class GameFrame extends JFrame {
 	
-	static final int WIDTH = 1200;
-	static final int HEIGHT = 1000;
+	private final int WIDTH = 1200;
+	private final int HEIGHT = 1000;
 	
 	GamePanel gamePanel = new GamePanel();
 	TimerPanel timerPanel = new TimerPanel();

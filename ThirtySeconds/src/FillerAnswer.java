@@ -3,13 +3,13 @@
  * 
  * */
 public class FillerAnswer {
-	private String name;
+	private String value;
 	
-	FillerAnswer(String fillerAnswer){
-		this.name = fillerAnswer;
+	FillerAnswer(String value){
+		this.value = value;
 	}
 	
 	public String getFillerAnswer() {
-		return this.name;
+		return this.value;
 	}
 }

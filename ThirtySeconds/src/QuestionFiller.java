@@ -69,7 +69,7 @@ public class QuestionFiller {
 		return answerList;
 	}
 	
-	public ArrayList getFilleranswerList() {
+	public ArrayList getFillerAnswerList() {
 		return fillerAnswerList;
 	}
 	
