@@ -8,8 +8,7 @@ public class CloseApplicationWindowButton extends JButton {
 	ApplicationWindow appWindow;
 	
 	CloseApplicationWindowButton(ApplicationWindow appWindow){
-		this.appWindow =  appWindow;
-		
+		this.appWindow = appWindow;
 		setText("Exit");
 		addActionListener(new ExitApplication());
 	}

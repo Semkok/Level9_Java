@@ -1,20 +1,20 @@
 public class ScreenHandler {
 	
-	ApplicationPanel appPanel;
+	SwitchablePanel appPanel;
 	
-	ScreenHandler(ApplicationPanel appPanel){
+	ScreenHandler(SwitchablePanel appPanel){
 		this.appPanel = appPanel;
-		System.out.println(appPanel.getLayout());
 	}
 	
 	public void setNewPanel(BasicPanel newPanel) {
 		repaintPanel(appPanel);
+		appPanel.add(newPanel);
 	}
 	
 	
-	private void repaintPanel(ApplicationPanel appPanel) {
-		appPanel.removeAll();
-		appPanel.repaint();
-		appPanel.revalidate();
+	private void repaintPanel(SwitchablePanel switchablePanel) {
+		switchablePanel.removeAll();
+		switchablePanel.repaint();
+		switchablePanel.revalidate();
 	}
 }

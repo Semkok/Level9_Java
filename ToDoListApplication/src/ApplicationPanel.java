@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 public class ApplicationPanel extends JPanel {
 		
@@ -9,8 +10,7 @@ public class ApplicationPanel extends JPanel {
 		setLayout(new BorderLayout());
 		setVisible(true);
 		add(new UpperBarPanel(appWindow), BorderLayout.NORTH);
-		add(new StartPanel(), BorderLayout.CENTER);
-		ScreenHandler screenHandler = new ScreenHandler(this);
+		add(new SwitchablePanel());
 		
 	}
 }
