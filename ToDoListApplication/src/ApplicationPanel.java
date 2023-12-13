@@ -7,10 +7,11 @@ import javax.swing.JScrollPane;
 public class ApplicationPanel extends JPanel {
 		
 	ApplicationPanel(ApplicationWindow appWindow){
+		SwitchablePanel switchPanel = new SwitchablePanel();
 		setLayout(new BorderLayout());
 		setVisible(true);
-		add(new UpperBarPanel(appWindow), BorderLayout.NORTH);
-		add(new SwitchablePanel());
+		add(new UpperBarPanel(appWindow,switchPanel), BorderLayout.NORTH);
+		add(switchPanel);
 		
 	}
 }
