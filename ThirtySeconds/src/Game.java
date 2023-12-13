@@ -9,7 +9,7 @@ public class Game {
     private Timer countdownTimer;
     GameFrame gameFrame;
     QuestionHandler questionHandler;
-    public int timeRemaining = 3;
+    public int timeRemaining = 12;
     public int timerExecutionCount = 0;
 
     Game() {
@@ -45,7 +45,7 @@ public class Game {
                 System.out.println("Time remaining: " + timeRemaining);
             } else {
                 System.out.println("Time's up!");
-                timeRemaining = 3;
+                timeRemaining = 12;
                 timerExecutionCount++;
                 questionHandler.removeAndSetNewQuestion(gameFrame.gamePanel);
             }
