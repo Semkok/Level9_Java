@@ -11,10 +11,8 @@ public class ApplicationWindow extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		device.setFullScreenWindow(this);
 		setVisible(true);
-		
 		add(new ApplicationPanel(this));
 		pack();
-		
 	}
 	
 }

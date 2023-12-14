@@ -2,7 +2,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-
+import javax.swing.JScrollPane;
 public class RemoveToDoItemButton extends JButton {
 	
 	ScreenHandler screenHandler;
@@ -18,7 +18,7 @@ public class RemoveToDoItemButton extends JButton {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			screenHandler.setNewPanel(new RemoveToDoItemPanel());
+			screenHandler.setNewPanel(new JScrollPane(new RemoveToDoItemPanel()));
 		}
 		
 	}

@@ -1,4 +1,5 @@
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 
 public class ShowToDoItemPanel extends BasicPanel{
 	ShowToDoItemPanel(){
