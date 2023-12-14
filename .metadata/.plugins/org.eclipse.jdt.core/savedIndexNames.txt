@@ -1,8 +1,6 @@
-INDEX VERSION 1.134+C:\Users\semst\Desktop\Level9_Java\.metadata\.plugins\org.eclipse.jdt.core
-2528863101.index
+INDEX VERSION 1.134+/home/sem/Desktop/Level9_Java/.metadata/.plugins/org.eclipse.jdt.core
+3573174634.index
 1865797976.index
-4061747424.index
-3413725848.index
-1273171941.index
-3852318757.index
-3213884761.index
+2456964626.index
+3629107627.index
+1040555962.index

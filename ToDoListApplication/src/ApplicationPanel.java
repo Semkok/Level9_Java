@@ -1,11 +1,6 @@
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-
-import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 public class ApplicationPanel extends JPanel {
 		
@@ -15,6 +10,9 @@ public class ApplicationPanel extends JPanel {
 		if(appWindow.currentOS.contains("win")) {
 			switchPanel.setPreferredSize(new Dimension(appWindow.getWidth(),(appWindow.getHeight() / 32) * 31));
 			setPreferredSize(new Dimension(appWindow.getSize()));
+		}
+		else {
+			setLayout(new BorderLayout());
 		}
 		
 		
