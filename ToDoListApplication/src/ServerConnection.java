@@ -43,6 +43,8 @@ public class ServerConnection {
 		
 		System.out.println(toDoListBuilder.getToDoList().getToDoItem(0).getName());
 		
+		toDoListBuilder.storeToDoListLocally();
+		
 	}
 	private void stopConnection() throws SQLException {
 		connection.close(); //IMPORTANT!!!
