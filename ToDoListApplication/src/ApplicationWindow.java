@@ -8,6 +8,7 @@ public class ApplicationWindow extends JFrame {
 	ApplicationWindow(){
 		GraphicsEnvironment graphics = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		GraphicsDevice device = graphics.getDefaultScreenDevice();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		device.setFullScreenWindow(this);
 		setVisible(true);
