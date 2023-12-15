@@ -1,7 +1,7 @@
 public class ConnectionProperties {
-	final private String serverPassword = "";
-	final private String serverUsername = "root";
-	final private String connectionURL = "jdbc:mysql://127.0.0.1:3306/toDoList";
+	final private String serverPassword = "Ld2tWji5qIWL3a3r";
+	final private String serverUsername = "skok1266_tdl";
+	final private String connectionURL = "jdbc:mysql://10.0.0.69:3306/skok1266_tdl";
 	
 	public String getServerPassword() {
 		return this.serverPassword;

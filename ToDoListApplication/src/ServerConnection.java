@@ -49,4 +49,7 @@ public class ServerConnection {
 	private void stopConnection() throws SQLException {
 		connection.close(); //IMPORTANT!!!
 	}
+	
+
+	
 }

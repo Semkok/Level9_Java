@@ -18,10 +18,9 @@ public class ScreenHandler {
 	public void setNewPanel(JScrollPane newPanel) {
 		repaintPanel(appPanel);
 		newPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		newPanel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		appPanel.add(newPanel, BorderLayout.CENTER);
 	}
-	
-	
 	
 	private void repaintPanel(SwitchablePanel switchablePanel) {
 		switchablePanel.removeAll();

@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class FortunateCookie {
 	
-	private String quoteList[] = {
+	private String[] quoteList = {
 			"Goodness is the only investment that never fails.",
 			"Respect yourself and others will respect you.",
 			"You will receive money from an unexpected source.",
@@ -20,7 +20,8 @@ public class FortunateCookie {
 	}
 	
 	private String randomQuote() {
-		Random random = new Random();	
+		Random random = new Random();
+		
 		return quoteList[random.nextInt(quoteList.length)];
 	}
 	
