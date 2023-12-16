@@ -18,11 +18,10 @@ public class ShowToDoItemPanel extends BasicPanel{
 		LocalToDoItemHandler lToDoItemHandler = new LocalToDoItemHandler();
 		GridLayout gridLayout = new GridLayout(40,2,25,25);
 		setLayout(gridLayout);
-		add(dummy);
 		lToDoItemHandler.getToDoItems(dummy,toDoList);
+		
 		if(!toDoList.isEmpty()) {
 			lToDoItemHandler.addToDoItemPanels(toDoList,this);
-			System.out.println(toDoList.get(1).getStatus());
 		}
 		
 	}

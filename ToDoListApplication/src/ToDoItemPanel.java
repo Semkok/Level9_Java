@@ -18,12 +18,15 @@ public class ToDoItemPanel extends JPanel implements ActionListener{
 	JLabel jlabel = new JLabel();
 	JRadioButton radioButton = new JRadioButton();
 	
+	ToDoList toDoList;
 	
 	
-	ToDoItemPanel(String name, boolean status, int id){
+	ToDoItemPanel(String name, boolean status, int id, ToDoList toDoList){
 		this.name = name;
 		this.status = status;
 		this.id = id;
+		
+		this.toDoList = toDoList;
 		
 		String text = String.format("<html>%s<br>%b<br>%d</html>",this.name,this.status,this.id);
 		setPreferredSize(new Dimension(400,300));
@@ -32,7 +35,6 @@ public class ToDoItemPanel extends JPanel implements ActionListener{
 		add(radioButton);
 		jlabel.setText(text);
 		add(jlabel);
-		
 		setVisible(true);
 	}
 
@@ -49,6 +51,10 @@ public class ToDoItemPanel extends JPanel implements ActionListener{
 			String text = String.format("<html>%s<br>%b<br>%d</html>",this.name,this.status,this.id);
 			jlabel.setText(text);
 		}
+		
+	}
+	
+	public void setValueInCSV() {
 		
 	}
 	
