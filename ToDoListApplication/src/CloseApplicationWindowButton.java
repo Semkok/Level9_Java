@@ -3,6 +3,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+/*
+ * EXIT BUTTON CLASS FOR EXITING THE APPLICATION
+ * */
+
 public class CloseApplicationWindowButton extends JButton {
 	
 	ApplicationWindow appWindow;

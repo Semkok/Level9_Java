@@ -3,11 +3,11 @@ import java.awt.GraphicsEnvironment;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
+/*
+ * MAIN WINDOW FOR THE APPLICATION TO RUN IN
+ * */
 public class ApplicationWindow extends JFrame {
-	
-	String currentOS = System.getProperty("os.name").toLowerCase();
-	
+	String userOS = System.getProperty("os.name").toLowerCase();
 	ApplicationWindow(){
 		GraphicsEnvironment graphics = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		GraphicsDevice device = graphics.getDefaultScreenDevice();

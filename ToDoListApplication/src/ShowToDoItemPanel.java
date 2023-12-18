@@ -1,14 +1,8 @@
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
-import javax.swing.BoxLayout;
 import javax.swing.JLabel;
-
-
+/*
+ * PANEL THAT DISPLAYS THE TODOITEMS
+ * */
 public class ShowToDoItemPanel extends BasicPanel{
 	
 	private ToDoList toDoList = new ToDoList();
@@ -18,18 +12,13 @@ public class ShowToDoItemPanel extends BasicPanel{
 		LocalToDoItemHandler lToDoItemHandler = new LocalToDoItemHandler();
 		GridLayout gridLayout = new GridLayout(40,2,25,25);
 		setLayout(gridLayout);
-		lToDoItemHandler.getToDoItems(dummy,toDoList);
+		
+		lToDoItemHandler.getToDoItems(dummy,toDoList); // reads the toDoItemList from CSV and fills the toDoList with its conetents
 		
 		if(!toDoList.isEmpty()) {
 			lToDoItemHandler.addToDoItemPanels(toDoList,this);
 		}
 		
 	}
-	
-	
-	// gets the to do items from the local csv and adds them to the toDoList
-	
-	
-	
 	
 }

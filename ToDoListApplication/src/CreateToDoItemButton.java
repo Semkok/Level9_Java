@@ -2,7 +2,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-
+/*
+ * BUTTON FOR GOING TO THE CREATE ITEM PANEL
+ * */
 public class CreateToDoItemButton extends JButton {
 	
 	ScreenHandler screenHandler;
@@ -13,7 +15,6 @@ public class CreateToDoItemButton extends JButton {
 		addActionListener(new ButtonAction());
 		
 	}
-	
 	
 	private class ButtonAction implements ActionListener{
 

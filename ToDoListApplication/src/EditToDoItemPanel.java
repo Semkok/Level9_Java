@@ -1,5 +1,7 @@
 import javax.swing.JLabel;
-
+/*
+ * EDIT TODOITEM PANEL 
+ * */
 public class EditToDoItemPanel extends BasicPanel {
 	
 	EditToDoItemPanel(){

@@ -1,3 +1,7 @@
+
+/*
+ * CLASS FOR HOLDING THE CONNECTION LOGIN DATA
+ * */
 public class ConnectionProperties {
 	final private String serverPassword = "Ld2tWji5qIWL3a3r";
 	final private String serverUsername = "skok1266_tdl";

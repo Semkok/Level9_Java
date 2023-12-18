@@ -4,14 +4,25 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.io.File;
 
 import javax.swing.JLabel;
 
+/*
+ * CLASS FOR EDITING THE CSV FILE WICH STORES THE LOCAL PROCCESED TODOITEMS FROM THE DATABASE
+ * */
+
 public class LocalToDoItemHandler {
 	
-	String filePath = "LocalToDoItems.csv";
 	
+	BasicPanel basicPanel;
+	
+	private String filePath = "LocalToDoItems.csv";
+	
+	
+	// reads the file and fills the toDoList with the toDoItems in the CSV
 	public void getToDoItems(JLabel label, ToDoList toDoList) {
 		
 		 try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -19,12 +30,9 @@ public class LocalToDoItemHandler {
 	            while ((line = br.readLine()) != null) {
 	                // Split the line into fields using a comma
 	                String[] fields = line.split(",");
-	               
-	                
 	                int id = Integer.parseInt(fields[0].trim());
 	                String name = fields[1].trim();
 	                boolean status = Boolean.parseBoolean(fields[2].trim());
-	                
 	                ToDoItem toDoItem = new ToDoItem(name,status, id);
 	                toDoList.add(toDoItem);
 	            }
@@ -46,20 +54,41 @@ public class LocalToDoItemHandler {
             writer.write(iD + "," + name + "," + "false");
             writer.newLine(); // newline so the bufferedWriter starts on a new line the next time 
             writer.close();
-            
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
+	public void removeToDoItem(ToDoList toDoList, ToDoItem toDoItem) {
+		toDoList.remove(toDoItem);
+		updateNewCSV(toDoList); //  makes a new csv file with the contents of the new 
+		refreshPanelWithNewValues();
+		addToDoItemPanels(toDoList,this.basicPanel);
+	}
 	
-	public void addToDoItemPanels(ToDoList toDoList, BasicPanel basicPanel) {
-		ToDoItemPanel[] toDoItemPanels = new ToDoItemPanel[toDoList.size()];
+	public void refreshPanelWithNewValues() {
+		this.basicPanel.removeAll();
+		this.basicPanel.repaint();
+		this.basicPanel.revalidate();
+	}
+	
+	private void updateNewCSV(ToDoList toDoList) {
+		ToDoListBuilder toDoListBuilder = new ToDoListBuilder();
+		toDoListBuilder.setToDoList(toDoList); // adds the new values with the new toDoList
+		toDoListBuilder.storeToDoListLocally();
+	}
+	
+	public void editToDoItem() {
 		
+	}
+	
+	// adds a panel to the panel for with the toDoItem
+	public void addToDoItemPanels(ToDoList toDoList, BasicPanel basicPanel) {
+		this.basicPanel = basicPanel;
+		ArrayList<ToDoItemPanel> toDoItemPanels = new ArrayList<ToDoItemPanel>();
 		for(int i =0; i < toDoList.size(); i++) {
-			toDoItemPanels[i] = new ToDoItemPanel(toDoList.get(i).getName(),toDoList.get(i).getStatus(),toDoList.get(i).getId(), toDoList);
-			toDoItemPanels[i].setVisible(true);
-			basicPanel.add(toDoItemPanels[i]);
+			toDoItemPanels.add(i, new ToDoItemPanel(toDoList.get(i), toDoList,this));
+			basicPanel.add(toDoItemPanels.get(i));
 		}
 	}
 }

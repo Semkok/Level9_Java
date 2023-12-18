@@ -1,4 +1,7 @@
 import java.awt.event.ActionEvent;
+/*
+ * BUTTON FOR GOING TO THE EDIT ITEM PANEL
+ * */
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;

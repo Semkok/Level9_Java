@@ -4,7 +4,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
+/*
+ * PANEL FOR MAKING NEW TODOITEMS 
+ * */
 public class CreateToDoItemPanel extends BasicPanel implements ActionListener{
 	JTextField textFieldName = new JTextField();
 	JTextField textFieldID = new JTextField();

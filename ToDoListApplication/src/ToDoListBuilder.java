@@ -1,13 +1,21 @@
 import java.io.PrintWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-
+/*
+ * BUILDS A TODOLIST FROM THE CONNECTION FROM THE SERVER AND MAKES AN .CSV WITH THE DATA INSIDE
+ * */
 public class ToDoListBuilder {
 	private ToDoList toDoList = new ToDoList();
 	
 	public ToDoList getToDoList() {
 		return this.toDoList;
 	}
+	
+	public void setToDoList(ToDoList toDoList) {
+		this.toDoList = toDoList;
+	}
+	
+	// add filters TODO:
 	
 	public void addToDoItem(ToDoItem toDoItem) {
 		this.toDoList.add(toDoItem);
@@ -20,7 +28,7 @@ public class ToDoListBuilder {
                 writer.println(item.getId() + "," + item.getName() + "," + item.getStatus());
             }
         } catch (IOException e) {
-            e.printStackTrace(); // Handle the exception appropriately
+            e.printStackTrace();
         }
     }
 	

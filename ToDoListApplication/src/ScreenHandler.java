@@ -1,7 +1,9 @@
 import java.awt.BorderLayout;
 
 import javax.swing.JScrollPane;
-
+/*
+ * CLASS FOR HANDELING THE DIFFERENT SCREENS 
+ * */
 public class ScreenHandler {
 	
 	SwitchablePanel appPanel;
@@ -13,6 +15,11 @@ public class ScreenHandler {
 	public void setNewPanel(BasicPanel newPanel) {
 		repaintPanel(appPanel);
 		appPanel.add(newPanel);
+	}
+	
+	public void removeToDoItemPanel() {
+		repaintPanel(appPanel);
+		appPanel.add(new ShowToDoItemPanel());
 	}
 	
 	public void setNewPanel(JScrollPane newPanel) {

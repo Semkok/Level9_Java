@@ -1,5 +1,7 @@
+/*
+* CLASS FOR DESCRIBING A TODOITEM  
+*/
 public class ToDoItem {
-	
 	private String name;
 	private boolean status;
 	private int id;
