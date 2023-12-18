@@ -62,8 +62,6 @@ public class LocalToDoItemHandler {
 	public void removeToDoItem(ToDoList toDoList, ToDoItem toDoItem) {
 		toDoList.remove(toDoItem);
 		updateNewCSV(toDoList); //  makes a new csv file with the contents of the new 
-		refreshPanelWithNewValues();
-		addToDoItemPanels(toDoList,this.basicPanel);
 	}
 	
 	public void refreshPanelWithNewValues() {
@@ -76,11 +74,26 @@ public class LocalToDoItemHandler {
 		ToDoListBuilder toDoListBuilder = new ToDoListBuilder();
 		toDoListBuilder.setToDoList(toDoList); // adds the new values with the new toDoList
 		toDoListBuilder.storeToDoListLocally();
+		refreshPanelWithNewValues();
+		addToDoItemPanels(toDoList,this.basicPanel);
 	}
 	
-	public void editToDoItem() {
+	public void editToDoItem(ToDoList toDoList, ToDoItem toDoItem, String newName) {
+		toDoList.remove(toDoItem);
+		toDoItem.setName(newName);
+		toDoList.add(toDoItem);
+		updateNewCSV(toDoList); //  makes a new csv file with the contents of the new 
+	}
+
+	public void editToDoItem(ToDoList toDoList, ToDoItem toDoItem, int newId) {
 		
 	}
+	
+	public void editToDoItem(ToDoList toDoList, ToDoItem toDoItem, boolean newStatus) {
+		
+	}
+	
+	
 	
 	// adds a panel to the panel for with the toDoItem
 	public void addToDoItemPanels(ToDoList toDoList, BasicPanel basicPanel) {

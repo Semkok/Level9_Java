@@ -8,11 +8,12 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 
 /*
  * A PANEL THAT DISPLAYS THE CONTENTS OF ONE TODOITEM
  * */
-public class ToDoItemPanel extends JPanel implements ActionListener{
+public class ToDoItemPanel extends JPanel{
 	
 	private String name;
 	private boolean status;
@@ -29,11 +30,11 @@ public class ToDoItemPanel extends JPanel implements ActionListener{
 		this.toDoList = toDoList;
 		this.lHandler = lHandler;
 		
+		JRadioButton statusButton = new JRadioButton();
+		
 		String text = String.format("<html>%s<br>%b<br>%d</html>",this.toDoItem.getName(),this.toDoItem.getStatus(),this.toDoItem.getId());
 		setPreferredSize(new Dimension(400,300));
-		// every JPanel has a JRadiobutton for checking if the toDoItem is done
-		radioButton.addActionListener(this);
-		add(radioButton);
+		add(new EditNameField());
 		jlabel.setText(text);
 		add(jlabel);
 		setVisible(true);
@@ -44,24 +45,16 @@ public class ToDoItemPanel extends JPanel implements ActionListener{
 		add(removeButton);
 		
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		if(radioButton.isSelected()) {
-			status = true;
-			String text = String.format("<html>%s<br>%b<br>%d</html>",this.name,this.status,this.id);
-			jlabel.setText(text);
-		}
-		
-		else {
-			status = false;
-			String text = String.format("<html>%s<br>%b<br>%d</html>",this.name,this.status,this.id);
-			jlabel.setText(text);
-		}
-		
-	}
 	
-	public void setValueInCSV() {
+	private class EditNameField extends JTextField implements ActionListener{
+		EditNameField(){
+			setText(toDoItem.getName());
+			addActionListener(this);
+		}
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			lHandler.editToDoItem(toDoList,toDoItem,this.getText());
+		}
 		
 	}
 	
@@ -71,9 +64,7 @@ public class ToDoItemPanel extends JPanel implements ActionListener{
 		}
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
 			lHandler.removeToDoItem(toDoList,toDoItem);
-			
 		}
 		
 	}
