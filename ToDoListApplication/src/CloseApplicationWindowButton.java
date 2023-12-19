@@ -21,7 +21,7 @@ public class CloseApplicationWindowButton extends JButton {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			appWindow.dispose(); // disposes off the AppWindow
+			appWindow.dispose(); // disposes off the AppWindow like EXIT_ON_CLOSE
 		}
 		
 	}

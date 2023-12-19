@@ -21,7 +21,7 @@ public class ToDoItemPanel extends JPanel{
 	private boolean status;
 	private int id;
 	
-	JLabel jlabel = new JLabel();
+	
 	JRadioButton radioButton = new JRadioButton();
 	LocalToDoItemHandler lHandler;
 	ToDoList toDoList;
@@ -35,17 +35,12 @@ public class ToDoItemPanel extends JPanel{
 		this.toBeRemovedItems = toBeRemovedItems;
 		
 		JRadioButton statusButton = new JRadioButton();
-		
-		String text = String.format("<html>%s<br>%b<br>%d</html>",this.toDoItem.getName(),this.toDoItem.getStatus(),this.toDoItem.getId());
+		add(new JLabel("" +toDoItem.getId()));
 		setPreferredSize(new Dimension(400,300));
 		add(new EditNameField());
-		jlabel.setText(text);
-		add(jlabel);
 		setVisible(true);
-		
-		//removing the jpanel
-		RemoveItemButton removeButton = new RemoveItemButton();
-		add(removeButton);
+		add(new RemoveItemCheckBox());
+		add(new ToggleStatus());
 		
 	}
 	
@@ -61,8 +56,23 @@ public class ToDoItemPanel extends JPanel{
 		
 	}
 	
-	private class RemoveItemButton extends JCheckBox implements ActionListener{
-		RemoveItemButton(){
+	private class ToggleStatus extends JCheckBox implements ActionListener{
+		ToggleStatus(){
+			addActionListener(this);
+			if(toDoItem.getStatus()) {
+				setSelected(true);
+			}
+		}
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			lHandler.editToDoItem(toDoList,toDoItem,toDoItem.getStatus());
+		}
+		
+	}
+	
+	// THE CHECKBOX FOR THE TODOITEM REMOVAL
+	private class RemoveItemCheckBox extends JCheckBox implements ActionListener{
+		RemoveItemCheckBox(){
 			addActionListener(this);
 		}
 		@Override

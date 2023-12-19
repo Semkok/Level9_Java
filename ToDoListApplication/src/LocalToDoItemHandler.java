@@ -87,13 +87,13 @@ public class LocalToDoItemHandler {
 		toDoList.add(indexOfOld,toDoItem); // lets the new editted toDoItem on the same old place in the arraylist 
 		updateNewCSV(toDoList); // makes a new csv file with the contents of the new 
 	}
-
-	public void editToDoItem(ToDoList toDoList, ToDoItem toDoItem, int newId) {
-		
-	}
 	
 	public void editToDoItem(ToDoList toDoList, ToDoItem toDoItem, boolean newStatus) {
-		
+		int indexOfOld = toDoList.indexOf(toDoItem);
+		toDoList.remove(toDoItem);
+		toDoItem.setStatus(!toDoItem.getStatus()); // flips the boolean
+		toDoList.add(indexOfOld,toDoItem); // lets the new editted toDoItem on the same old place in the arraylist 
+		updateNewCSV(toDoList); // makes a new csv file with the contents of the ne
 	}
 	
 	// adds a panel to the panel for with the toDoItem

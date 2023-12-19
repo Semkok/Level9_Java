@@ -16,7 +16,6 @@ public class RemoveItemsPanel extends JPanel {
 		add(new RemoveItemsButton());
 	}
 	
-	
 	private class RemoveItemsButton extends JButton implements ActionListener{
 		
 		RemoveItemsButton(){
