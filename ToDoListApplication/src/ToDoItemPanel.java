@@ -2,9 +2,11 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -24,11 +26,13 @@ public class ToDoItemPanel extends JPanel{
 	LocalToDoItemHandler lHandler;
 	ToDoList toDoList;
 	ToDoItem toDoItem;
+	ArrayList<ToDoItem>toBeRemovedItems;
 	
-	ToDoItemPanel(ToDoItem toDoItem, ToDoList toDoList,LocalToDoItemHandler lHandler){
+	ToDoItemPanel(ToDoItem toDoItem, ToDoList toDoList,LocalToDoItemHandler lHandler, ArrayList<ToDoItem>toBeRemovedItems){
 		this.toDoItem = toDoItem;
 		this.toDoList = toDoList;
 		this.lHandler = lHandler;
+		this.toBeRemovedItems = toBeRemovedItems;
 		
 		JRadioButton statusButton = new JRadioButton();
 		
@@ -57,13 +61,21 @@ public class ToDoItemPanel extends JPanel{
 		
 	}
 	
-	private class RemoveItemButton extends JButton implements ActionListener{
+	private class RemoveItemButton extends JCheckBox implements ActionListener{
 		RemoveItemButton(){
 			addActionListener(this);
 		}
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			lHandler.removeToDoItem(toDoList,toDoItem);
+			
+			if(this.isSelected()) {
+				toBeRemovedItems.add(toDoItem);
+			}
+			else{ // if the item is unselected it will remove it from the toberemoved item arraylist
+				toBeRemovedItems.remove(toDoItem);
+			}
+			
+			
 		}
 		
 	}

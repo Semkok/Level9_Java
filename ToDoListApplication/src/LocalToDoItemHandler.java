@@ -58,8 +58,11 @@ public class LocalToDoItemHandler {
 		}
 	}
 	
-	public void removeToDoItem(ToDoList toDoList, ToDoItem toDoItem) {
-		toDoList.remove(toDoItem);
+	public void removeToDoItems(ToDoList toDoList) {
+		for(ToDoItem toDoItem : itemsToRemove) {
+			toDoList.remove(toDoItem);
+		}
+		
 		updateNewCSV(toDoList); //  makes a new csv file with the contents of the new 
 	}
 	
@@ -98,14 +101,17 @@ public class LocalToDoItemHandler {
 		this.basicPanel = basicPanel;
 		addRemoveItemPanel(basicPanel);
 		ArrayList<ToDoItemPanel> toDoItemPanels = new ArrayList<ToDoItemPanel>();
+		RemoveItemsPanel removePanel = new RemoveItemsPanel(itemsToRemove,toDoList,this);
+		basicPanel.add(removePanel);
+		
 		for(int i =0; i < toDoList.size(); i++) {
-			toDoItemPanels.add(new ToDoItemPanel(toDoList.get(i), toDoList,this));
+			toDoItemPanels.add(new ToDoItemPanel(toDoList.get(i), toDoList,this,itemsToRemove));
 			basicPanel.add(toDoItemPanels.get(i));
 		}
 		
 	}
 	public void addRemoveItemPanel(BasicPanel basicPanel) {
-		RemoveItemsPanel removePanel = new RemoveItemsPanel();
-		basicPanel.add(removePanel);
+		
+		
 	}
 }

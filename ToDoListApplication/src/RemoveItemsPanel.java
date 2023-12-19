@@ -5,12 +5,15 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class RemoveItemsPanel extends JPanel {
-	ArrayList<ToDoItem> toBeRemovedItems;
-	
-	
-	RemoveItemsPanel(ArrayList<ToDoItem> toBeRemovedItems, ArrayList<ToDoItem> toDoList){
-		setVisible(true);
+	ArrayList<ToDoItem> toBeRemovedItems; // the items that are selected to be removed
+	ToDoList toDoList; // the list from where the items need to be removed
+	LocalToDoItemHandler lHandler;
+	RemoveItemsPanel(ArrayList<ToDoItem> toBeRemovedItems, ToDoList toDoList, LocalToDoItemHandler lHandler){
 		this.toBeRemovedItems = toBeRemovedItems;
+		this.toDoList = toDoList;
+		this.lHandler = lHandler;
+		setVisible(true);
+		add(new RemoveItemsButton());
 	}
 	
 	
@@ -18,12 +21,13 @@ public class RemoveItemsPanel extends JPanel {
 		
 		RemoveItemsButton(){
 			addActionListener(this);
+			setText("Delete selected items");
 		}
 		
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
+			lHandler.removeToDoItems(toDoList);
 		}
 		
 	}
