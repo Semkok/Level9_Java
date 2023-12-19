@@ -6,6 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.io.File;
 
 import javax.swing.JButton;
@@ -93,25 +95,24 @@ public class LocalToDoItemHandler {
 		toDoList.remove(toDoItem);
 		toDoItem.setStatus(!toDoItem.getStatus()); // flips the boolean
 		toDoList.add(indexOfOld,toDoItem); // lets the new editted toDoItem on the same old place in the arraylist 
-		updateNewCSV(toDoList); // makes a new csv file with the contents of the ne
+		updateNewCSV(toDoList); // makes a new csv file with the contents of the new one
 	}
 	
 	// adds a panel to the panel for with the toDoItem
 	public void addToDoItemPanels(ToDoList toDoList, BasicPanel basicPanel) {
 		this.basicPanel = basicPanel;
-		addRemoveItemPanel(basicPanel);
 		ArrayList<ToDoItemPanel> toDoItemPanels = new ArrayList<ToDoItemPanel>();
+		
 		RemoveItemsPanel removePanel = new RemoveItemsPanel(itemsToRemove,toDoList,this);
 		basicPanel.add(removePanel);
 		
 		for(int i =0; i < toDoList.size(); i++) {
 			toDoItemPanels.add(new ToDoItemPanel(toDoList.get(i), toDoList,this,itemsToRemove));
-			basicPanel.add(toDoItemPanels.get(i));
 		}
 		
-	}
-	public void addRemoveItemPanel(BasicPanel basicPanel) {
-		
+		for(ToDoItemPanel toDoItemPanel : toDoItemPanels) {
+			basicPanel.add(toDoItemPanel);
+		}
 		
 	}
 }

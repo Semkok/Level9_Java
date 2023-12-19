@@ -40,6 +40,5 @@ public class CreateToDoItemPanel extends BasicPanel implements ActionListener{
 		String name = textFieldName.getText(); 
 		String iD = textFieldID.getText();
 		localToDoItemHandler.createToDoItem(name, iD);
-		
 	}
 }
