@@ -9,7 +9,6 @@ public class ServerConnection {
 	ToDoListBuilder toDoListBuilder;
 	
 	ServerConnection(){
-		
 			ConnectionProperties connectionProperties = new ConnectionProperties();
 			
 			this.toDoListBuilder = new ToDoListBuilder();

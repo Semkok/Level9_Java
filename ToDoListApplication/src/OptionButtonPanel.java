@@ -11,7 +11,6 @@ public class OptionButtonPanel extends JPanel {
 		setBackground(new Color(37,51,71));
 		add(new ShowToDoItemButton(switchPanel,screenHandler));
 		add(new CreateToDoItemButton(switchPanel,screenHandler));
-		add(new EditToDoItemButton(switchPanel,screenHandler));
 		add(new SaveButton());
 		add(new RetrieveServerToDoItems());
 		

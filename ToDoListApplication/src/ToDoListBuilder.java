@@ -15,8 +15,6 @@ public class ToDoListBuilder {
 		this.toDoList = toDoList;
 	}
 	
-	// add filters TODO:
-	
 	public void addToDoItem(ToDoItem toDoItem) {
 		this.toDoList.add(toDoItem);
 	}
@@ -31,6 +29,5 @@ public class ToDoListBuilder {
             e.printStackTrace();
         }
     }
-	
 	
 }

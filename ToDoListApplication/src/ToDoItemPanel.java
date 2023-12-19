@@ -41,7 +41,6 @@ public class ToDoItemPanel extends JPanel{
 		
 		//removing the jpanel
 		RemoveItemButton removeButton = new RemoveItemButton();
-		
 		add(removeButton);
 		
 	}

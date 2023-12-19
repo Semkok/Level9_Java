@@ -8,7 +8,9 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.io.File;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /*
  * CLASS FOR EDITING THE CSV FILE WICH STORES THE LOCAL PROCCESED TODOITEMS FROM THE DATABASE
@@ -16,15 +18,14 @@ import javax.swing.JLabel;
 
 public class LocalToDoItemHandler {
 	
-	
 	BasicPanel basicPanel;
 	
 	private String filePath = "LocalToDoItems.csv";
 	
+	public ArrayList<ToDoItem> itemsToRemove = new ArrayList<ToDoItem>();
 	
 	// reads the file and fills the toDoList with the toDoItems in the CSV
 	public void getToDoItems(JLabel label, ToDoList toDoList) {
-		
 		 try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
 	            String line;
 	            while ((line = br.readLine()) != null) {
@@ -37,11 +38,9 @@ public class LocalToDoItemHandler {
 	                toDoList.add(toDoItem);
 	            }
 	        }
-		 		
 		 	catch(FileNotFoundException e) {
 		 		label.setText("The file was not found");
 		 	}
-		 
 		 	catch (IOException e) {
 	            e.printStackTrace(); 
 	        }
@@ -79,10 +78,11 @@ public class LocalToDoItemHandler {
 	}
 	
 	public void editToDoItem(ToDoList toDoList, ToDoItem toDoItem, String newName) {
+		int indexOfOld = toDoList.indexOf(toDoItem);
 		toDoList.remove(toDoItem);
 		toDoItem.setName(newName);
-		toDoList.add(toDoItem);
-		updateNewCSV(toDoList); //  makes a new csv file with the contents of the new 
+		toDoList.add(indexOfOld,toDoItem); // lets the new editted toDoItem on the same old place in the arraylist 
+		updateNewCSV(toDoList); // makes a new csv file with the contents of the new 
 	}
 
 	public void editToDoItem(ToDoList toDoList, ToDoItem toDoItem, int newId) {
@@ -93,15 +93,19 @@ public class LocalToDoItemHandler {
 		
 	}
 	
-	
-	
 	// adds a panel to the panel for with the toDoItem
 	public void addToDoItemPanels(ToDoList toDoList, BasicPanel basicPanel) {
 		this.basicPanel = basicPanel;
+		addRemoveItemPanel(basicPanel);
 		ArrayList<ToDoItemPanel> toDoItemPanels = new ArrayList<ToDoItemPanel>();
 		for(int i =0; i < toDoList.size(); i++) {
-			toDoItemPanels.add(i, new ToDoItemPanel(toDoList.get(i), toDoList,this));
+			toDoItemPanels.add(new ToDoItemPanel(toDoList.get(i), toDoList,this));
 			basicPanel.add(toDoItemPanels.get(i));
 		}
+		
+	}
+	public void addRemoveItemPanel(BasicPanel basicPanel) {
+		RemoveItemsPanel removePanel = new RemoveItemsPanel();
+		basicPanel.add(removePanel);
 	}
 }
