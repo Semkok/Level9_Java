@@ -1,17 +1,16 @@
 public class HealthCalculator {
 	
 	public double caloriesToJoules(double calories) {
-		double joules = (calories * 4.184);
-		return joules;
+		
+		return (calories * 4.184);
 	}
 	
 	public double joulesToCalories(double joules) {
-		double calories = (joules / 4.184);
-		return calories;
+		return (joules / 4.184);
 	}
 	
 	public double calculateBMI(double bodyLength, double bodyWeightInKilos) {
-		double BMI = bodyWeightInKilos /(bodyLength * bodyLength);
-		return BMI;
+		
+		return bodyWeightInKilos /(bodyLength * bodyLength);
 	}
 }

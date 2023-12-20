@@ -26,6 +26,7 @@ public class ScreenHandler {
 		repaintPanel(appPanel);
 		newPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		newPanel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		newPanel.getVerticalScrollBar().setUnitIncrement(20); // SCROLL SPEED
 		appPanel.add(newPanel, BorderLayout.CENTER);
 	}
 	

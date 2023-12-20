@@ -110,7 +110,8 @@ public class LocalToDoItemHandler {
 		for(int i =0; i < toDoList.size(); i++) {
 			toDoItemPanels.add(new ToDoItemPanel(toDoList.get(i), toDoList,this,itemsToRemove));
 		}
-		Collections.sort(toDoItemPanels,new SortByName());
+//		Collections.sort(toDoItemPanels,new SortByStatusASC());
+//		Collections.sort(toDoItemPanels,new SortByName());
 		
 		for(ToDoItemPanel toDoItemPanel : toDoItemPanels) {
 			basicPanel.add(toDoItemPanel);
