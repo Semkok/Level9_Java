@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.io.File;
 
@@ -109,6 +110,7 @@ public class LocalToDoItemHandler {
 		for(int i =0; i < toDoList.size(); i++) {
 			toDoItemPanels.add(new ToDoItemPanel(toDoList.get(i), toDoList,this,itemsToRemove));
 		}
+		Collections.sort(toDoItemPanels,new SortByName());
 		
 		for(ToDoItemPanel toDoItemPanel : toDoItemPanels) {
 			basicPanel.add(toDoItemPanel);

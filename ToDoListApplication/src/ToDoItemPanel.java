@@ -17,9 +17,7 @@ import javax.swing.JTextField;
  * */
 public class ToDoItemPanel extends JPanel{
 	
-	private String name;
-	private boolean status;
-	private int id;
+	
 	
 	
 	JRadioButton radioButton = new JRadioButton();
@@ -33,6 +31,8 @@ public class ToDoItemPanel extends JPanel{
 		this.toDoList = toDoList;
 		this.lHandler = lHandler;
 		this.toBeRemovedItems = toBeRemovedItems;
+		
+		
 		
 		JRadioButton statusButton = new JRadioButton();
 		add(new JLabel("" +toDoItem.getId()));
@@ -88,6 +88,15 @@ public class ToDoItemPanel extends JPanel{
 			
 		}
 		
+	}
+	
+	
+	public String getName() {
+		return toDoItem.getName();
+	}
+	
+	public Boolean getStatus() {
+		return toDoItem.getStatus();
 	}
 	
 }
