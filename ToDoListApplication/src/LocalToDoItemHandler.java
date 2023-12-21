@@ -27,24 +27,18 @@ public class LocalToDoItemHandler {
 	
 	public ArrayList<ToDoItem> itemsToRemove = new ArrayList<ToDoItem>();
 	
-	String filter = " ";
+	String filter = "";	
 	// reads the file and fills the toDoList with the toDoItems in the CSV
-	public void getToDoItems(JLabel label, ToDoList toDoList) {
+	public void getToDoItems(ToDoList toDoList) {
 		 try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
 	            String line;
 	            while ((line = br.readLine()) != null) {
 	                // Split the line into fields using a comma
+	            	line.trim();
 	                String[] fields = line.split(",");
-	                int id = Integer.parseInt(fields[0].trim());
-	                String name = fields[1].trim();
-	                boolean status = Boolean.parseBoolean(fields[2].trim());
-	                ToDoItem toDoItem = new ToDoItem(name,status, id);
-	                toDoList.add(toDoItem);
+	                toDoList.add(new ToDoItem(fields[1],Boolean.parseBoolean(fields[2]), Integer.parseInt(fields[0])));
 	            }
 	        }
-		 	catch(FileNotFoundException e) {
-		 		label.setText("The file was not found");
-		 	}
 		 	catch (IOException e) {
 	            e.printStackTrace(); 
 	        }

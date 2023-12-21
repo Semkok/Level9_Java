@@ -37,8 +37,19 @@ public class ServerConnection {
 	}
 	
 	public void AddNewItems() throws SQLException {
-		String removeQuery = "DELETE * FROM ToDoList_Items";
+		String removeQuery = "DELETE FROM ToDoList_Items";
 		statement.executeUpdate(removeQuery);
+		
+		ToDoList toDoList = new ToDoList();
+		
+		new LocalToDoItemHandler().getToDoItems(toDoList);
+		
+		for(ToDoItem toDoItem : toDoList) {
+			String inputNewToDoItem = String.format("INSERT INTO ToDoList_Items VALUES (%d,'%s',%b)",toDoItem.getId(),toDoItem.getName(),toDoItem.getStatus());
+			statement.executeUpdate(inputNewToDoItem);
+		}
+		
+		
 		
 		connection.close();
 	}

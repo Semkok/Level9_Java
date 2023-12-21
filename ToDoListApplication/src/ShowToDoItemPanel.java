@@ -10,10 +10,11 @@ public class ShowToDoItemPanel extends BasicPanel{
 	
 	ShowToDoItemPanel(){
 		LocalToDoItemHandler lToDoItemHandler = new LocalToDoItemHandler();
-		GridLayout gridLayout = new GridLayout(40,2,25,25);
+		GridLayout gridLayout = new GridLayout(5,4,25,25);
+		
 		setLayout(gridLayout);
 		
-		lToDoItemHandler.getToDoItems(dummy,toDoList); // reads the toDoItemList from CSV and fills the toDoList with its conetents
+		lToDoItemHandler.getToDoItems(toDoList); // reads the toDoItemList from CSV and fills the toDoList with its conetents
 		
 		if(!toDoList.isEmpty()) {
 			lToDoItemHandler.addToDoItemPanels(toDoList,this);

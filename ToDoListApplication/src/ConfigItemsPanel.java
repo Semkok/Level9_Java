@@ -12,7 +12,6 @@ public class ConfigItemsPanel extends JPanel {
 	LocalToDoItemHandler lHandler;
 	ArrayList<ToDoItemPanel> toDoItemPanels;
 	
-	
 	ConfigItemsPanel(ArrayList<ToDoItem> toBeRemovedItems, ToDoList toDoList, LocalToDoItemHandler lHandler, ArrayList<ToDoItemPanel> toDoItemPanels){
 		this.toBeRemovedItems = toBeRemovedItems;
 		this.toDoList = toDoList;
@@ -48,9 +47,7 @@ public class ConfigItemsPanel extends JPanel {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
 			lHandler.filterByName(toDoList);
-
 		}
 		
 	}
