@@ -32,13 +32,17 @@ public class ServerConnection {
 			toDoListBuilder.getToDoList().addToDoItem(new ToDoItem(resultSet.getString("name"),resultSet.getBoolean("status"),resultSet.getInt("id")));
 			row++;
 		}
-		
+		connection.close();
 		toDoListBuilder.storeToDoListLocally();
+	}
+	
+	public void AddNewItems() throws SQLException {
+		String removeQuery = "DELETE * FROM ToDoList_Items";
+		statement.executeUpdate(removeQuery);
 		
+		connection.close();
 	}
-	public void stopConnection() throws SQLException {
-		connection.close(); //IMPORTANT!!!
-	}
+	
 	
 
 	

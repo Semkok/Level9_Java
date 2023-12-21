@@ -1,3 +1,4 @@
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -30,6 +31,9 @@ public class Main {
 		}
 		input.close();
 		
+		 Locale defaultLocale = Locale.getDefault();
+		 
+		 System.out.println(defaultLocale);
 	}
 
 }

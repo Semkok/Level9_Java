@@ -27,6 +27,7 @@ public class LocalToDoItemHandler {
 	
 	public ArrayList<ToDoItem> itemsToRemove = new ArrayList<ToDoItem>();
 	
+	String filter = " ";
 	// reads the file and fills the toDoList with the toDoItems in the CSV
 	public void getToDoItems(JLabel label, ToDoList toDoList) {
 		 try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -77,12 +78,14 @@ public class LocalToDoItemHandler {
 	
 	public void filterByStatus(ToDoList toDoList) {
 		refreshPanel();
-		addToDoItemPanels(toDoList,this.basicPanel, "status");
+		filter = "status";
+		addToDoItemPanels(toDoList,this.basicPanel);
 	}
 	
 	public void filterByName(ToDoList toDoList) {
 		refreshPanel();
-		addToDoItemPanels(toDoList,this.basicPanel, "name");
+		filter = "name";
+		addToDoItemPanels(toDoList,this.basicPanel);
 	}
 	
 	private void updateNewCSV(ToDoList toDoList) {
@@ -90,7 +93,7 @@ public class LocalToDoItemHandler {
 		toDoListBuilder.setToDoList(toDoList); // adds the new values with the new toDoList
 		toDoListBuilder.storeToDoListLocally();
 		refreshPanel();
-		addToDoItemPanels(toDoList,this.basicPanel, "none");
+		addToDoItemPanels(toDoList,this.basicPanel);
 	}
 	
 	public void editToDoItem(ToDoList toDoList, ToDoItem toDoItem, String newName) {
@@ -110,7 +113,7 @@ public class LocalToDoItemHandler {
 	}
 	
 	// adds a panel to the panel for with the toDoItem
-	public void addToDoItemPanels(ToDoList toDoList, BasicPanel basicPanel, String filter) {
+	public void addToDoItemPanels(ToDoList toDoList, BasicPanel basicPanel) {
 		this.basicPanel = basicPanel;
 		ArrayList<ToDoItemPanel> toDoItemPanels = new ArrayList<ToDoItemPanel>();
 		

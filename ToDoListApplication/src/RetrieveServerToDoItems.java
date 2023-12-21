@@ -20,8 +20,6 @@ public class RetrieveServerToDoItems extends JButton {
 			ServerConnection serverConnection = new ServerConnection();
 			try {
 				serverConnection.getValuesFromTable();
-				
-				serverConnection.stopConnection();
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
