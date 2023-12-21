@@ -29,6 +29,7 @@ public class Main {
 			System.out.printf("Your Body mass index is: %.1f",healthCalculate.calculateBMI(bodyLength, bodyWeight));
 		}
 		input.close();
+		
 	}
 
 }

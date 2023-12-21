@@ -69,18 +69,28 @@ public class LocalToDoItemHandler {
 		updateNewCSV(toDoList); //  makes a new csv file with the contents of the new 
 	}
 	
-	public void refreshPanelWithNewValues() {
+	public void refreshPanel() {
 		this.basicPanel.removeAll();
 		this.basicPanel.repaint();
 		this.basicPanel.revalidate();
+	}
+	
+	public void filterByStatus(ToDoList toDoList) {
+		refreshPanel();
+		addToDoItemPanels(toDoList,this.basicPanel, "status");
+	}
+	
+	public void filterByName(ToDoList toDoList) {
+		refreshPanel();
+		addToDoItemPanels(toDoList,this.basicPanel, "name");
 	}
 	
 	private void updateNewCSV(ToDoList toDoList) {
 		ToDoListBuilder toDoListBuilder = new ToDoListBuilder();
 		toDoListBuilder.setToDoList(toDoList); // adds the new values with the new toDoList
 		toDoListBuilder.storeToDoListLocally();
-		refreshPanelWithNewValues();
-		addToDoItemPanels(toDoList,this.basicPanel);
+		refreshPanel();
+		addToDoItemPanels(toDoList,this.basicPanel, "none");
 	}
 	
 	public void editToDoItem(ToDoList toDoList, ToDoItem toDoItem, String newName) {
@@ -100,18 +110,25 @@ public class LocalToDoItemHandler {
 	}
 	
 	// adds a panel to the panel for with the toDoItem
-	public void addToDoItemPanels(ToDoList toDoList, BasicPanel basicPanel) {
+	public void addToDoItemPanels(ToDoList toDoList, BasicPanel basicPanel, String filter) {
 		this.basicPanel = basicPanel;
 		ArrayList<ToDoItemPanel> toDoItemPanels = new ArrayList<ToDoItemPanel>();
-		
-		RemoveItemsPanel removePanel = new RemoveItemsPanel(itemsToRemove,toDoList,this);
-		basicPanel.add(removePanel);
 		
 		for(int i =0; i < toDoList.size(); i++) {
 			toDoItemPanels.add(new ToDoItemPanel(toDoList.get(i), toDoList,this,itemsToRemove));
 		}
-//		Collections.sort(toDoItemPanels,new SortByStatusASC());
-//		Collections.sort(toDoItemPanels,new SortByName());
+		
+		ConfigItemsPanel configPanel = new ConfigItemsPanel(itemsToRemove,toDoList,this,toDoItemPanels);
+		
+		if(filter.equals("name")) {
+			Collections.sort(toDoItemPanels, new SortByName());
+		}
+		
+		else if(filter.equals("status")) {
+			Collections.sort(toDoItemPanels, new SortByStatusASC());
+		}
+		
+		basicPanel.add(configPanel);	
 		
 		for(ToDoItemPanel toDoItemPanel : toDoItemPanels) {
 			basicPanel.add(toDoItemPanel);

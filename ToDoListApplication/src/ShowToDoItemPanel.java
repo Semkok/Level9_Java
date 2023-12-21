@@ -16,7 +16,7 @@ public class ShowToDoItemPanel extends BasicPanel{
 		lToDoItemHandler.getToDoItems(dummy,toDoList); // reads the toDoItemList from CSV and fills the toDoList with its conetents
 		
 		if(!toDoList.isEmpty()) {
-			lToDoItemHandler.addToDoItemPanels(toDoList,this);
+			lToDoItemHandler.addToDoItemPanels(toDoList,this, "none");
 		}
 		
 	}
