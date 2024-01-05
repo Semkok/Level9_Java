@@ -5,7 +5,10 @@ import java.util.Collections;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
+/*
+ * JPANEL VIEW FOR REMOVING ITEMS AND SOERTING ITEMS
+ * 
+ * */
 public class ConfigItemsPanel extends JPanel {
 	ArrayList<ToDoItem> toBeRemovedItems; // the items that are selected to be removed
 	ToDoList toDoList; // the list from where the items need to be removed

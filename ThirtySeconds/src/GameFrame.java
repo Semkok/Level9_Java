@@ -19,9 +19,7 @@ public class GameFrame extends JFrame {
 		getContentPane().setBackground(Color.black);
 		setTitle("Quiz game");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 		setIconImage(new ImageIcon("dice.png").getImage());
-		
 		setLocationRelativeTo(null);
 		setVisible(true);
 		setLayout(null);

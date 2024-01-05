@@ -49,8 +49,6 @@ public class ServerConnection {
 			statement.executeUpdate(inputNewToDoItem);
 		}
 		
-		
-		
 		connection.close();
 	}
 	

@@ -124,6 +124,11 @@ public class LocalToDoItemHandler {
 		else if(filter.equals("status")) {
 			Collections.sort(toDoItemPanels, new SortByStatusASC());
 		}
+		else {
+			Collections.reverse(toDoItemPanels); // revererse the arrya list so the newest added toDoItems will be shown first
+		}
+		
+		
 		
 		basicPanel.add(configPanel);	
 		

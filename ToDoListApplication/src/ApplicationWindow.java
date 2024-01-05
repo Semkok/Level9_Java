@@ -8,6 +8,7 @@ import javax.swing.JPanel;
  * */
 public class ApplicationWindow extends JFrame {
 	String userOS = System.getProperty("os.name").toLowerCase();
+	
 	ApplicationWindow(){
 		GraphicsEnvironment graphics = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		GraphicsDevice device = graphics.getDefaultScreenDevice();
