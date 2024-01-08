@@ -5,23 +5,18 @@ import javax.swing.JButton;
 /*
  * BUTTON FOR GOING TO THE CREATE ITEM PANEL
  * */
-public class CreateToDoItemButton extends JButton {
+public class CreateToDoItemButton extends JButton implements ActionListener {
 	
 	ScreenHandler screenHandler;
 	
 	CreateToDoItemButton(SwitchablePanel switchPanel, ScreenHandler screenHandler){
 		setText("Create item");
 		this.screenHandler = screenHandler;
-		addActionListener(new ButtonAction());
-		
+		addActionListener(this);
 	}
 	
-	private class ButtonAction implements ActionListener{
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			screenHandler.setNewPanel(new CreateToDoItemPanel());
-		}
-		
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		screenHandler.setNewPanel(new CreateToDoItemPanel());
 	}
 }

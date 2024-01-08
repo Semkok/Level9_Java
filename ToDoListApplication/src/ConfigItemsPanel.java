@@ -6,14 +6,14 @@ import java.util.Collections;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 /*
- * JPANEL VIEW FOR REMOVING ITEMS AND SOERTING ITEMS
+ * JPANEL WITH FUNCTION FOR REMOVING ITEMS AND SOERTING ITEMS
  * 
  * */
 public class ConfigItemsPanel extends JPanel {
-	ArrayList<ToDoItem> toBeRemovedItems; // the items that are selected to be removed
-	ToDoList toDoList; // the list from where the items need to be removed
-	LocalToDoItemHandler lHandler;
-	ArrayList<ToDoItemPanel> toDoItemPanels;
+	private ArrayList<ToDoItem> toBeRemovedItems; // the items that are selected to be removed
+	private ToDoList toDoList; // the list from where the items need to be removed
+	private LocalToDoItemHandler lHandler;
+	private ArrayList<ToDoItemPanel> toDoItemPanels;
 	
 	ConfigItemsPanel(ArrayList<ToDoItem> toBeRemovedItems, ToDoList toDoList, LocalToDoItemHandler lHandler, ArrayList<ToDoItemPanel> toDoItemPanels){
 		this.toBeRemovedItems = toBeRemovedItems;
@@ -45,6 +45,7 @@ public class ConfigItemsPanel extends JPanel {
 		
 		SortItemsByNameButton(){
 			super("Sort by a-z");
+			
 			addActionListener(this);
 		}
 		
@@ -61,7 +62,6 @@ public class ConfigItemsPanel extends JPanel {
 			super("Sort by status");
 			addActionListener(this);
 		}
-		
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {

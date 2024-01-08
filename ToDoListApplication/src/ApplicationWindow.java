@@ -7,7 +7,7 @@ import javax.swing.JPanel;
  * MAIN WINDOW FOR THE APPLICATION TO RUN IN
  * */
 public class ApplicationWindow extends JFrame {
-	String userOS = System.getProperty("os.name").toLowerCase();
+	public String userOS = System.getProperty("os.name").toLowerCase(); // string for getting the user it's OS
 	
 	ApplicationWindow(){
 		GraphicsEnvironment graphics = GraphicsEnvironment.getLocalGraphicsEnvironment();

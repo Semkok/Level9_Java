@@ -7,22 +7,21 @@ import javax.swing.JButton;
  * EXIT BUTTON CLASS FOR EXITING THE APPLICATION
  * */
 
-public class CloseApplicationWindowButton extends JButton {
+public class CloseButton extends JButton implements ActionListener {
 	
-	ApplicationWindow appWindow;
+	private ApplicationWindow appWindow;
 	
-	CloseApplicationWindowButton(ApplicationWindow appWindow){
+	CloseButton(ApplicationWindow appWindow){
 		this.appWindow = appWindow;
 		setText("Exit");
-		addActionListener(new ExitApplication());
+		addActionListener(this);
 	}
 	
-	private class ExitApplication implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			appWindow.dispose(); // disposes off the AppWindow like EXIT_ON_CLOSE
 		}
 		
-	}
+	
 }

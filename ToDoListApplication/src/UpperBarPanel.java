@@ -20,7 +20,7 @@ public class UpperBarPanel extends JPanel {
 		
 		//ADD BUTTONS
 		add(new OptionButtonPanel(switchPanel), BorderLayout.WEST);
-		add(new CloseApplicationWindowButton(appWindow), BorderLayout.EAST);
+		add(new CloseButton(appWindow), BorderLayout.EAST);
 		
 		
 	}

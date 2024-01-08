@@ -27,7 +27,8 @@ public class LocalToDoItemHandler {
 	
 	public ArrayList<ToDoItem> itemsToRemove = new ArrayList<ToDoItem>();
 	
-	String filter = "";	
+	String filter = "";	// for holding the view its current filter 
+	
 	// reads the file and fills the toDoList with the toDoItems in the CSV
 	public void getToDoItems(ToDoList toDoList) {
 		 try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -36,7 +37,7 @@ public class LocalToDoItemHandler {
 	                // Split the line into fields using a comma
 	            	line.trim();
 	                String[] fields = line.split(",");
-	                toDoList.add(new ToDoItem(fields[1],Boolean.parseBoolean(fields[2]), Integer.parseInt(fields[0])));
+	                	toDoList.add(new ToDoItem(fields[1],Boolean.parseBoolean(fields[2]), Integer.parseInt(fields[0])));
 	            }
 	        }
 		 	catch (IOException e) {
@@ -127,8 +128,6 @@ public class LocalToDoItemHandler {
 		else {
 			Collections.reverse(toDoItemPanels); // revererse the arrya list so the newest added toDoItems will be shown first
 		}
-		
-		
 		
 		basicPanel.add(configPanel);	
 		

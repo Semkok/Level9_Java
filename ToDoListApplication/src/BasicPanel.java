@@ -2,7 +2,7 @@ import java.awt.Color;
 
 import javax.swing.JPanel;
 /*
- * CLASS FOR KEEPING THE SAME LAYOUT FOR C-R-U-D JPANELS 
+ * CLASS FOR KEEPING THE SAME LAYOUT
  * */
 public abstract class BasicPanel extends JPanel {
 		
@@ -12,3 +12,4 @@ public abstract class BasicPanel extends JPanel {
 	}
 	
 }
+
