@@ -4,25 +4,21 @@ import java.sql.SQLException;
 
 import javax.swing.JButton;
 
-public class SaveButton extends JButton {
+public class SaveButton extends JButton implements ActionListener{
 	SaveButton(){
 		setText("Save");
-		addActionListener(new Connection());
+		addActionListener(this);
 	}
 	
 	
-	private class Connection implements ActionListener{
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			try {
-				new ServerConnection().AddNewItems();
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		try {
+			new ServerConnection().addNewItems();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
-		
 	}
 }

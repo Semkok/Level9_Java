@@ -21,13 +21,13 @@ import javax.swing.JPanel;
 
 public class LocalToDoItemHandler {
 	
-	BasicPanel basicPanel;
+	private BasicPanel basicPanel;
 	
 	private String filePath = "LocalToDoItems.csv";
 	
 	public ArrayList<ToDoItem> itemsToRemove = new ArrayList<ToDoItem>();
 	
-	String filter = "";	// for holding the view its current filter 
+	private String filter = "";	// for holding the view its current filter 
 	
 	// reads the file and fills the toDoList with the toDoItems in the CSV
 	public void getToDoItems(ToDoList toDoList) {
@@ -65,7 +65,7 @@ public class LocalToDoItemHandler {
 		updateNewCSV(toDoList); //  makes a new csv file with the contents of the new 
 	}
 	
-	public void refreshPanel() {
+	private void refreshPanel() {
 		this.basicPanel.removeAll();
 		this.basicPanel.repaint();
 		this.basicPanel.revalidate();

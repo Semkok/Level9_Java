@@ -26,11 +26,11 @@ public class ToDoItemPanel extends JPanel{
 	
 	
 	
-	JRadioButton radioButton = new JRadioButton();
-	LocalToDoItemHandler lHandler;
-	ToDoList toDoList;
-	ToDoItem toDoItem;
-	ArrayList<ToDoItem>toBeRemovedItems;
+	private JRadioButton radioButton = new JRadioButton();
+	private LocalToDoItemHandler lHandler;
+	private ToDoList toDoList;
+	private ToDoItem toDoItem;
+	private ArrayList<ToDoItem> toBeRemovedItems;
 	
 	private Color stickynoteColor =  new Color(255,247,64);
 	private Border stickynoteBorder = BorderFactory.createLineBorder(Color.BLACK, 2);
@@ -38,7 +38,7 @@ public class ToDoItemPanel extends JPanel{
 	
 	
 	ToDoItemPanel(ToDoItem toDoItem, ToDoList toDoList,LocalToDoItemHandler lHandler, ArrayList<ToDoItem>toBeRemovedItems){
-		 this.toDoItem = toDoItem;
+		    this.toDoItem = toDoItem;
 	        this.toDoList = toDoList;
 	        this.lHandler = lHandler;
 	        this.toBeRemovedItems = toBeRemovedItems;
@@ -52,13 +52,16 @@ public class ToDoItemPanel extends JPanel{
 	        // Add EditNameField to the NORTH position of the panel
 	        add(new EditNameField(), BorderLayout.NORTH);
 	        add(new StickyNoteBody());
-	        
-		
 		
 	}
 	
+	public String getName() {
+		return toDoItem.getName();
+	}
 	
-	
+	public Boolean getStatus() {
+		return toDoItem.getStatus();
+	}
 	
 	private class EditNameField extends JTextField implements ActionListener{
 		EditNameField(){
@@ -75,7 +78,6 @@ public class ToDoItemPanel extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			lHandler.editToDoItem(toDoList,toDoItem,this.getText());
 		}
-		
 	}
 	
 	private class StickyNoteBody extends JPanel{
@@ -105,6 +107,9 @@ public class ToDoItemPanel extends JPanel{
 		GroupHorizontalPanel(){
 			setLayout(new FlowLayout());
 			setBackground(new Color(255,247,64));
+			
+			
+			
 		}
 	}
 	
@@ -153,13 +158,5 @@ public class ToDoItemPanel extends JPanel{
 		
 	}
 	
-	
-	public String getName() {
-		return toDoItem.getName();
-	}
-	
-	public Boolean getStatus() {
-		return toDoItem.getStatus();
-	}
 	
 }

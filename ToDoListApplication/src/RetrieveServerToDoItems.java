@@ -6,25 +6,22 @@ import javax.swing.JButton;
 /*
  * BUTTON WHICH IS USED FOR MAKING A CONNECTION WITH THE SERVER
  * */
-public class RetrieveServerToDoItems extends JButton {
+public class RetrieveServerToDoItems extends JButton implements ActionListener {
 	RetrieveServerToDoItems(){
 		setText("Retrieve Server Items");
-		addActionListener(new GetConnection());
+		addActionListener(this);
 	}
 	
 	
-	private class GetConnection implements ActionListener{
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			ServerConnection serverConnection = new ServerConnection();
-			try {
-				serverConnection.getValuesFromTable();
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		ServerConnection serverConnection = new ServerConnection();
+		try {
+			serverConnection.getValuesFromTable();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
-		
+	
 	}
 }

@@ -5,25 +5,23 @@ import javax.swing.JButton;
 /*
  * BUTTON FOR SWITCHING TO THE WHOW TODOITEM PANEL
  * */
-public class ShowToDoItemButton extends JButton {
+public class ShowToDoItemButton extends JButton implements ActionListener{
 	
-	ScreenHandler screenHandler;
+	private ScreenHandler screenHandler;
 	
-	ShowToDoItemButton(SwitchablePanel switchPanel, ScreenHandler screenHandler){
+	ShowToDoItemButton(ScreenHandler screenHandler){
 		setText("Show items");
 		this.screenHandler = screenHandler;
-		addActionListener(new ButtonAction());
+		addActionListener(this);
+		
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+	
+		screenHandler.setNewPanel(new JScrollPane(new ShowToDoItemPanel()));
+		
 	}
 	
 	
-	private class ButtonAction implements ActionListener{
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-		
-			screenHandler.setNewPanel(new JScrollPane(new ShowToDoItemPanel()));
-			
-		}
-		
-	}
+	
 }

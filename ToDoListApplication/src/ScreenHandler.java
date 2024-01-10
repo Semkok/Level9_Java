@@ -6,7 +6,7 @@ import javax.swing.JScrollPane;
  * */
 public class ScreenHandler {
 	
-	SwitchablePanel appPanel;
+	private SwitchablePanel appPanel; //  the SwitchablePanel that gets its JPanels from the ScreenHandler
 	
 	ScreenHandler(SwitchablePanel appPanel){
 		this.appPanel = appPanel;
@@ -17,10 +17,7 @@ public class ScreenHandler {
 		appPanel.add(newPanel);
 	}
 	
-	public void removeToDoItemPanel() {
-		repaintPanel(appPanel);
-		appPanel.add(new ShowToDoItemPanel());
-	}
+	
 	
 	public void setNewPanel(JScrollPane newPanel) {
 		repaintPanel(appPanel);

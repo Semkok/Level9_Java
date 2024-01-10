@@ -4,9 +4,9 @@ import java.sql.*;
  * */
 public class ServerConnection {
 	
-	Connection connection;
-	Statement statement;
-	ToDoListBuilder toDoListBuilder;
+	private Connection connection;
+	private Statement statement;
+	private ToDoListBuilder toDoListBuilder;
 	
 	ServerConnection(){
 			ConnectionProperties connectionProperties = new ConnectionProperties();
@@ -36,7 +36,7 @@ public class ServerConnection {
 		toDoListBuilder.storeToDoListLocally();
 	}
 	
-	public void AddNewItems() throws SQLException {
+	public void addNewItems() throws SQLException {
 		String removeQuery = "DELETE FROM ToDoList_Items";
 		statement.executeUpdate(removeQuery);
 		

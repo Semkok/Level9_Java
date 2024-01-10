@@ -4,9 +4,11 @@ import java.awt.GridLayout;
  * */
 public class ShowToDoItemPanel extends BasicPanel{
 	
-	private ToDoList toDoList = new ToDoList();
+	
 	
 	ShowToDoItemPanel(){
+		ToDoList toDoList = new ToDoList();
+		
 		LocalToDoItemHandler lToDoItemHandler = new LocalToDoItemHandler();
 		GridLayout gridLayout = new GridLayout(20,4,25,25);
 		

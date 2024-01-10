@@ -9,7 +9,7 @@ public class CreateToDoItemButton extends JButton implements ActionListener {
 	
 	ScreenHandler screenHandler;
 	
-	CreateToDoItemButton(SwitchablePanel switchPanel, ScreenHandler screenHandler){
+	CreateToDoItemButton(ScreenHandler screenHandler){
 		setText("Create item");
 		this.screenHandler = screenHandler;
 		addActionListener(this);

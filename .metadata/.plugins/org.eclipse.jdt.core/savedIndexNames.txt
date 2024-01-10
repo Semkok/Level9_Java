@@ -1,9 +1,5 @@
 INDEX VERSION 1.134+/home/sem/Desktop/Level9_Java/.metadata/.plugins/org.eclipse.jdt.core
 2516011033.index
-3629107627.index
 1865797976.index
-3573174634.index
 3939171498.index
 2456964626.index
-391444614.index
-1040555962.index
