@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
@@ -24,19 +25,25 @@ public class ToolBar extends JPanel implements ActionListener{
 	
 	private int currentBackground = 0;
 	
-	final int toolBarWidth = ApplicationWindow.WIDTH;
-	final int toolBarHeight = ApplicationWindow.HEIGHT / 15;
+	
+	
+	Dimension appWindowSize = ApplicationWindow.screenSize;
+	
+	Dimension toolBarSize = new Dimension((int)appWindowSize.getWidth(),(int)appWindowSize.getHeight());
+	
+	
+	
 	
 	ToolBar(JPanel drawPanel){
 		this.mainPanel = drawPanel;
-		
-		setBounds(0,0,toolBarWidth,toolBarHeight);
+		setMaximumSize(toolBarSize);
 		setBackground(new Color(0,6,47));
 		
 		JLabel title = new JLabel("PictoPaint!");
 		title.setFont(new Font("Comic Sans MS", Font.PLAIN, 40));
 		title.setForeground(new Color(255,255,255));
 		title.setBounds(-10,0,50,10);
+		
 		add(title);
 		
 		exportDrawing = new JButton();
